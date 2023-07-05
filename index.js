@@ -56,23 +56,37 @@ app.get("/", (req, res) => {
 app.use("/api/v1", apiRoutes);
 
 
-app.listen(environmentVariables.APP_PORT || 8000, (err) => {
-  if (err) {
-    console.error(err);
-  }
+// app.listen(environmentVariables.APP_PORT || 8000, (err) => {
+//   if (err) {
+//     console.error(err);
+//   }
 
-  console.info("connected to mongodb");
-      console.info(
-        `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
-      );
-  // connectToMongoDb()
-  //   .then(() => {
-  //     console.info("connected to mongodb");
-  //     console.info(
-  //       `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
-  //     );
-  //   })
-  //   .catch((_error) => {
-  //     console.log(_error);
-  //   });
-});
+//   console.info("connected to mongodb");
+//   console.info(
+//     `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
+//   );
+//   // connectToMongoDb()
+//   //   .then(() => {
+//   //     console.info("connected to mongodb");
+//   //     console.info(
+//   //       `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
+//   //     );
+//   //   })
+//   //   .catch((_error) => {
+//   //     console.log(_error);
+//   //   });
+// });
+
+const main = async () => {
+  console.info('starting server')
+  await connectToMongoDb()
+  console.info('connected to mongodb')
+  app.listen(environmentVariables.APP_PORT || 8000, (err) => {
+    if (err) {
+      console.error(err);
+    }
+    console.info(`Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`)
+  })
+}
+
+main()
