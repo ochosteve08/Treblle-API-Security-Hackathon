@@ -3,19 +3,20 @@ const mongoose = require("mongoose");
 
 // create a new todo item
 const createTodo = async (req, res) => {
-  try {
-    const { title, description, completed } = req.body;
+  // try {
+  //   const { title, description, completed } = req.body;
 
-    const todo = await todoService.createTodo({
-      title,
-      description,
-      completed,
-    });
+  //   const todo = await todoService.createTodo({
+  //     title,
+  //     description,
+  //     completed,
+  //   });
 
-    res.status(200).json(todo);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+  //   res.status(200).json(todo);
+  // } catch (error) {
+  //   res.status(400).json({ error: error.message });
+  // }
+   res.send({ message: "create todo" });
 };
 
 // get a single todo item

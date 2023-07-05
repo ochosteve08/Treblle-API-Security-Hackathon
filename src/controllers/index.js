@@ -4,4 +4,5 @@ const userController = require("./user.controllers");
 
 module.exports = { 
      todoController, 
-     userController}
+     userController
+}

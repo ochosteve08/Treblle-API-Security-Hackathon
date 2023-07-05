@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { jwtSecret } = require("./jwtSecret");
+const { jwtSecret } = require('./jwToken');
 
 const createToken = async (userId) =>
   jwt.sign(
