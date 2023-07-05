@@ -38,6 +38,7 @@ const getTodo = async (req, res) => {
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
+  
 };
 
 //get all todo items
@@ -48,6 +49,7 @@ const fetchAllTodo = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+   
 };
 
 //update todo item

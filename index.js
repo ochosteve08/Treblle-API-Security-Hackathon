@@ -47,21 +47,13 @@ const limiter = rateLimit({
 // Apply rate limiting middleware to all routes
 app.use(limiter);
 
-app.get("/api/v1", (req, res) => {
+app.get("/", (req, res) => {
   res.send({ message: "todo API working fine..." });
 });
 
-// use routes
-app.use(apiRoutes);
 
-/*//route
-app.use("/todo", todoRoutes);
-app.use("*", () => {
-  throw new Error({
-    message: "Route not found",
-    code: 404,
-  });
-});*/
+// use routes
+app.use("/api/v1", apiRoutes);
 
 
 app.listen(environmentVariables.APP_PORT || 8000, (err) => {
