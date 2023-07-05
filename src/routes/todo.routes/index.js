@@ -4,6 +4,6 @@ const todoRoutes = require("./todo.route");
 const todoRoute = express.Router();
 
 todoRoute.use(todoRoutes);
-todoRoute.use("*", () => error.throwNotFound({ item: "Route" }));
+// todoRoute.use("*", () => error.throwNotFound({ item: "Route" }));
 
 module.exports = todoRoute;

@@ -9,6 +9,7 @@ const cors = require("cors");
 // Import internal modules
 
 const { connectToMongoDb, environmentVariables } = require("./src/config");
+const apiRoutes = require("./src/routes");
 
 // express app
 const app = express();
@@ -46,9 +47,12 @@ const limiter = rateLimit({
 // Apply rate limiting middleware to all routes
 app.use(limiter);
 
-app.get("/api", (req, res) => {
+app.get("/api/v1", (req, res) => {
   res.send({ message: "todo API working fine..." });
 });
+
+// use routes
+app.use(apiRoutes);
 
 /*//route
 app.use("/todo", todoRoutes);
@@ -65,14 +69,18 @@ app.listen(environmentVariables.APP_PORT || 8000, (err) => {
     console.error(err);
   }
 
-  connectToMongoDb()
-    .then(() => {
-      console.info("connected to mongodb");
+  console.info("connected to mongodb");
       console.info(
         `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
       );
-    })
-    .catch((_error) => {
-      console.log(_error);
-    });
+  // connectToMongoDb()
+  //   .then(() => {
+  //     console.info("connected to mongodb");
+  //     console.info(
+  //       `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
+  //     );
+  //   })
+  //   .catch((_error) => {
+  //     console.log(_error);
+  //   });
 });

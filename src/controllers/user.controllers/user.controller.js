@@ -1,9 +1,13 @@
 const UserService = require("../../services/user.services/user.services");
-const validator = require("validator");
-const { createToken } = require("../../utils/jwtTokens");
+const {
+  Transaction,
+  jwt,
+} = require("../../utils");
 
 const registerUser = async (req, res) => {
+   const transaction = await Transaction.startSession();
   try {
+    await transaction.startTransaction();
     const { name, email, password } = req.body;
 
     //validator
@@ -20,15 +24,20 @@ const registerUser = async (req, res) => {
 
     const user = await UserService.signup(name, email, password);
     // create a token
-    const token = await createToken(user._id);
+    const token = await jwt.createToken(user._id);
     res.status(200).json({ user, token }); // Replace email and token with your actual response data
   } catch (error) {
+    await transaction.abortTransaction();
     res.status(400).json({ error: error.message });
+  } finally {
+    await transaction.endSession();
   }
 };
 
 const userLogin = async (req, res) => {
+  const transaction = await Transaction.startSession();
   try {
+    await transaction.startTransaction();
     const { email, password } = req.body;
     if (!email || !password) {
       throw Error("all fields must be filled");
@@ -37,11 +46,14 @@ const userLogin = async (req, res) => {
     const user = await UserService.login({ email, password });
     const { _id } = user;
 
-    const token = await createToken(_id);
+    const token = await jwt.createToken(_id);
 
     res.status(200).json({ user, token });
   } catch (error) {
+     await transaction.abortTransaction();
     res.status(400).json({ error: error.message });
+  } finally {
+    await transaction.endSession();
   }
 };
 

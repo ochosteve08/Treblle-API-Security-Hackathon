@@ -10,6 +10,5 @@ const generateJwtSecret = () => {
 const jwtSecret = generateJwtSecret();
 
 module.exports = {
-  generateJwtSecret,
   jwtSecret,
 };
