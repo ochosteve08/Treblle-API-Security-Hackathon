@@ -1,4 +1,4 @@
-const { todoModel } = require("../model");
+const { todoModel } = require("../../models");
 
 const createTodo = async ({ title, description, completed }) => {
   return await todoModel.create({ title, description, completed });

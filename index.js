@@ -3,6 +3,7 @@ const express = require("express");
 const treblle = require("@treblle/express");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
+const cors = require("cors");
 
 
 // Import internal modules
@@ -15,6 +16,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(treblle());
+app.use(cors());
 
 app.use(
   treblle({
@@ -23,6 +25,15 @@ app.use(
     additionalFieldsToMask: [],
   })
 );
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 
 app.use(helmet());
 
@@ -38,6 +49,15 @@ app.use(limiter);
 app.get("/api", (req, res) => {
   res.send({ message: "todo API working fine..." });
 });
+
+/*//route
+app.use("/todo", todoRoutes);
+app.use("*", () => {
+  throw new Error({
+    message: "Route not found",
+    code: 404,
+  });
+});*/
 
 
 app.listen(environmentVariables.APP_PORT || 8000, (err) => {
