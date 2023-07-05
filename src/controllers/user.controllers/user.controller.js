@@ -32,6 +32,7 @@ const registerUser = async (req, res) => {
   } finally {
     await transaction.endSession();
   }
+  
 };
 
 const userLogin = async (req, res) => {
@@ -55,6 +56,7 @@ const userLogin = async (req, res) => {
   } finally {
     await transaction.endSession();
   }
+   
 };
 
 module.exports = {
