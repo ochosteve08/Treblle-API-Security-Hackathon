@@ -1,10 +1,14 @@
 const { todoServices } = require("../../services");
-const mongoose = require("mongoose");
+const { todoValidation } = require("../../validations");
+const { Transaction } = require("../../utils");
 
 // create a new todo item
-const createTodo = async (req, res) => {
+const createTodo = async (req, res, next) => {
+  const transaction = await Transaction.startSession();
   try {
-    const { title, description } = req.body;
+    await transaction.startTransaction();
+    const { title, description } =
+      await todoValidation.addTodoValidation.validateAsync(req.body);
 
     const todo = await todoServices.createTodo({
       title,
@@ -12,83 +16,109 @@ const createTodo = async (req, res) => {
      
     });
 
-    res.status(200).json(todo);
+    res.status(200).json({ todo }, req, res, next);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    await transaction.abortTransaction();
+    res.status(400).json({ error: error.message }, req, res, next);
+  }
+    finally {
+    await transaction.endSession();
   }
    
 };
 
 // get a single todo item
-const getTodo = async (req, res) => {
+const getTodo = async (req, res, next) => {
+  const transaction = await Transaction.startSession();
   try {
-    const { id } = req.params;
+    await transaction.startTransaction();
+   
     if (!req.params.id) {
       return res.status(404).json({ message: "id not found" });
     }
-    if (!mongoose.Types.ObjectId.isValid({ id })) {
-      return res.status(404).json({ message: "no todo with such id" });
-    }
+    const { id } = await todoValidation.todoIdValidation.validateAsync(
+      req.params
+    );
 
-    const todo = await todoService.getTodo({ id });
+
+    const todo = await todoServices.getTodo({ id });
     if (!todo) {
       return res.status(404).json({ message: "todo not found" });
     }
-    return res.status(200).json(todo);
+    res.status(200).json({ todo }, req, res, next);
   } catch (error) {
-    return res.status(400).json({ error: error.message });
+    await transaction.abortTransaction();
+    res.status(400).json({ error: error.message }, req, res, next);
+  } finally {
+    await transaction.endSession();
   }
   
 };
 
 //get all todo items
-const fetchAllTodo = async (req, res) => {
+const fetchAllTodo = async (req, res, next) => {
+  const transaction = await Transaction.startSession();
   try {
-    const todo = await todoService.fetchAllTodo();
-    res.status(200).json(todo);
+    await transaction.startTransaction();
+    const todo = await todoServices.fetchAllTodo();
+    res.status(200).json({ todo }, req, res, next);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    await transaction.abortTransaction();
+    res.status(400).json({ error: error.message }, req, res, next);
+  } finally {
+    await transaction.endSession();
   }
    
 };
 
 //update todo item
-const updateTodo = async (req, res) => {
+const updateTodo = async (req, res, next) => {
+   const transaction = await Transaction.startSession();
   try {
-    const { title, description, completed } = req.body;
-    const { id } = req.params;
-    const updatedTodo = await todoService.updateTodo({
+     await transaction.startTransaction();
+     const { title, description, completed } = await todoValidation.updateTodoValidation.validateAsync(req.body);
+     const { id } = await todoValidation.todoIdValidation.validateAsync(
+     req.params
+   );
+    const updatedTodo = await todoServices.updateTodo({
       title,
       description,
       completed,
       id,
     });
-    res.status(200).json(updatedTodo);
+    res.status(200).json({ updatedTodo }, req, res, next);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    await transaction.abortTransaction();
+    res.status(400).json({ error: error.message }, req, res, next);
+  } finally {
+    await transaction.endSession();
   }
 };
 
 //delete todo item
-const deleteTodo = async (req, res) => {
-  try {
-    const { id } = req.params;
-    if (!req.params.id) {
-      return res.status(404).json({ message: "id not found" });
-    }
-    if (!mongoose.Types.ObjectId.isValid({ id })) {
-      return res.status(404).json({ message: "no todo with such id" });
-    }
+const deleteTodo = async (req, res, next) => {
+ const transaction = await Transaction.startSession();
+ try {
+   await transaction.startTransaction();
+   if (!req.params.id) {
+     return res.status(404).json({ message: "id not found" });
+   }
+  
+   const { id } = await todoValidation.todoIdValidation.validateAsync(
+     req.params
+   );
+   const todo = await todoServices.deleteTodo({ id });
+   if (!todo) {
+     return res.status(404).json({ message: "todo not found" });
+   }
 
-    const todo = await todoService.deleteTodo({ id });
-    if (!todo) {
-      return res.status(404).json({ message: "todo not found" });
-    }
-
-    return res.status(200).json(todo);
-  } catch (error) {
-    return res.status(400).json({ error: error.message });
-  }
+   res.status(200).json({ todo }, req, res, next);
+ } catch (error) {
+   await transaction.abortTransaction();
+   res.status(400).json({ error: error.message }, req, res, next);
+ } finally {
+   await transaction.endSession();
+ }
 };
 
 module.exports = {
