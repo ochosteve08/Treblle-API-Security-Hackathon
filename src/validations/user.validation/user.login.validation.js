@@ -6,6 +6,7 @@ const userLoginValidation = Joi.object({
     .required()
     .label("Email")
     .max(255),
+  password: Joi.string().min(8).required().label("Password"),
 });
 
 module.exports = {

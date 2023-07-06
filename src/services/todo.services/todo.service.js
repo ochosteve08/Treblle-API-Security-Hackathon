@@ -1,7 +1,11 @@
 const { todoModel } = require("../../models");
 
-const createTodo = async ({ title, description}) => {
-  return await todoModel.create({ title, description });
+const createTodo = async ({
+  title,
+  description,
+  user_id,
+}) => {
+  return await todoModel.create({ title, description, user_id });
 };
 const fetchAllTodo = async () => await todoModel.find().sort({ createdAt: -1 });
 

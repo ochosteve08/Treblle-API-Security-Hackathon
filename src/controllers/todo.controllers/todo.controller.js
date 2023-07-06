@@ -9,11 +9,12 @@ const createTodo = async (req, res, next) => {
     await transaction.startTransaction();
     const { title, description } =
       await todoValidation.addTodoValidation.validateAsync(req.body);
+       const user_id = req.user._id;
 
     const todo = await todoServices.createTodo({
       title,
       description,
-     
+      user_id,
     });
 
     res.status(200).json({ todo }, req, res, next);
