@@ -4,7 +4,7 @@ const requireAuth = require("../../middleWare/requireAuth");
 const todoRoutes = express.Router();
 
 // require Auth for all todo
-todoRoutes.use(requireAuth);
+// todoRoutes.use(requireAuth);
 
 
 //GET all  todo

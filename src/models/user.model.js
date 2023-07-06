@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
+const { v4: uuidv4 } = require("uuid");
 
 const userSchema = new Schema(
   {
@@ -12,11 +13,13 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    name: {
+    _id: {
       type: String,
-      required: true,
+      default: uuidv4,
     },
+   
   },
+
   {
     timestamps: true,
   }
