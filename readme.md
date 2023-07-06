@@ -64,14 +64,6 @@ The following API routes are available:
 - **POST /api/v1/users/register**: Register a new user.
 - **POST /api/v1/users/login**: Log in an existing user.
 
-- **GET /api/v1/users/**: fetch all users(only by admin).
-
-- **GET /api/v1/users/:id**: fetch a user(only by admin).
-
-- **DELETE /api/v1/users/:id**: delete all users (only by admin).
-
-- **DELETE /api/v1/users/**: delete all users (only by admin).
-
 ### Todo Routes
 
 - **GET /api/v1/**: Get all todo lists.
