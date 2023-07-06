@@ -16,10 +16,16 @@ const todoSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    _id: { 
-      type: String, 
-      default: uuidv4 },
+    _id: {
+      type: String,
+      default: uuidv4,
+    },
+    user_id: {
+      type: String,
+      required: true,
+    },
   },
+
   {
     timestamps: true,
   }
