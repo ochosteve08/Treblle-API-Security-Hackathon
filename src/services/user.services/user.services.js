@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 class UserService {
   //signup
-  static async signup(name, email, password) {
+  static async signup( email, password) {
     try {
       const exist = await UserModel.findOne({ email });
       if (exist) {
@@ -11,7 +11,7 @@ class UserService {
       }
       const saltRounds = 10;
       const hash = await bcrypt.hash(password, saltRounds);
-      const user = new UserModel({ name, email, password: hash });
+      const user = new UserModel({ email, password: hash });
       const savedUser = await user.save();
       return savedUser;
     } catch (error) {
