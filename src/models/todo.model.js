@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const { v4: uuidv4 } = require("uuid");
 
 const todoSchema = new Schema(
   {
@@ -15,6 +16,9 @@ const todoSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    _id: { 
+      type: String, 
+      default: uuidv4 },
   },
   {
     timestamps: true,

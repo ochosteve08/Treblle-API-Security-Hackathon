@@ -32,7 +32,7 @@ class UserService {
       if (!isPasswordValid) {
         throw Error("Invalid password");
       }
-      // console.log("user from service:", user)
+     
       return user;
     } catch (error) {
       throw error;
@@ -41,16 +41,3 @@ class UserService {
 }
 
 module.exports = UserService;
-
-// get user by userId
-// const getUserByUserId = async ({ userId }) =>
-//   UserModel.findById(userId);
-
-// const getUserByEmail = async ({ email }) => UserModel.findOne({ email });
-
-// module.exports = {
-//   getUserByEmail,
-//   createUser,
-//   getUserByUserId,
-
-// };
