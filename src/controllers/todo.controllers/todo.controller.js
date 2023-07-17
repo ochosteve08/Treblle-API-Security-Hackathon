@@ -18,6 +18,7 @@ const createTodo = async (req, res, next) => {
     });
 
     res.status(200).json({ todo }, req, res, next);
+    await transaction.commitTransaction();
   } catch (error) {
     await transaction.abortTransaction();
     res.status(400).json({ error: error.message }, req, res, next);
@@ -33,20 +34,16 @@ const getTodo = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-   
-    if (!req.params.id) {
-      return res.status(404).json({ message: "id not found" });
-    }
+     
     const { id } = await todoValidation.todoIdValidation.validateAsync(
       req.params
     );
-
-
     const todo = await todoServices.getTodo({ id });
     if (!todo) {
       return res.status(404).json({ message: "todo not found" });
     }
     res.status(200).json({ todo }, req, res, next);
+    await transaction.commitTransaction();
   } catch (error) {
     await transaction.abortTransaction();
     res.status(400).json({ error: error.message }, req, res, next);
@@ -61,8 +58,10 @@ const fetchAllTodo = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const todo = await todoServices.fetchAllTodo();
+    const user_id = req.user._id;
+    const todo = await todoServices.fetchAllTodo({ user_id });
     res.status(200).json({ todo }, req, res, next);
+    await transaction.commitTransaction();
   } catch (error) {
     await transaction.abortTransaction();
     res.status(400).json({ error: error.message }, req, res, next);
@@ -88,6 +87,7 @@ const updateTodo = async (req, res, next) => {
       id,
     });
     res.status(200).json({ updatedTodo }, req, res, next);
+    await transaction.commitTransaction();
   } catch (error) {
     await transaction.abortTransaction();
     res.status(400).json({ error: error.message }, req, res, next);
@@ -101,10 +101,7 @@ const deleteTodo = async (req, res, next) => {
  const transaction = await Transaction.startSession();
  try {
    await transaction.startTransaction();
-   if (!req.params.id) {
-     return res.status(404).json({ message: "id not found" });
-   }
-  
+ 
    const { id } = await todoValidation.todoIdValidation.validateAsync(
      req.params
    );
@@ -114,6 +111,7 @@ const deleteTodo = async (req, res, next) => {
    }
 
    res.status(200).json({ todo }, req, res, next);
+   await transaction.commitTransaction();
  } catch (error) {
    await transaction.abortTransaction();
    res.status(400).json({ error: error.message }, req, res, next);

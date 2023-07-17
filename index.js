@@ -4,7 +4,7 @@ const treblle = require("@treblle/express");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const cors = require("cors");
-
+const compression = require("compression");
 
 // Import internal modules
 const { connectToMongoDb, environmentVariables } = require("./src/config");
@@ -15,6 +15,9 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+// Use the compression middleware
+app.use(compression());
 
 // Configure Treblle middleware for request monitoring and protection
 app.use(
@@ -37,15 +40,14 @@ app.use(
 
 app.use(helmet());
 
-
 // Rate limiting configuration
 const limiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   max: 60, // 60 requests per hour
 });
 
-// Apply rate limiting middleware 
-app.use( limiter);
+// Apply rate limiting middleware
+app.use(limiter);
 
 app.get("/", (req, res) => {
   res.send({ message: "todo API working fine now" });
@@ -85,12 +87,13 @@ const main = async () => {
   await connectToMongoDb();
   console.info("Connected to MongoDB");
   app.listen(environmentVariables.APP_PORT || 8000, (err) => {
-    if (err) {
-      console.error(err);
+    try {
+      console.info(
+        `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
+      );
+    } catch (error) {
+      console.log(error);
     }
-    console.info(
-      `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
-    );
   });
 };
 

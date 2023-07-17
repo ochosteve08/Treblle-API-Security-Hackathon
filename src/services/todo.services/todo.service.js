@@ -7,7 +7,8 @@ const createTodo = async ({
 }) => {
   return await todoModel.create({ title, description, user_id });
 };
-const fetchAllTodo = async () => await todoModel.find().sort({ createdAt: -1 });
+const fetchAllTodo = async ({ user_id }) =>
+  await todoModel.find({ user_id }).sort({ createdAt: -1 });
 
 const getTodo = async ({ id }) => await todoModel.findOne({ _id: id });
 
