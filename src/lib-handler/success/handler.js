@@ -8,7 +8,7 @@ const { STATUS } = require("../consts");
  * @param res
  * @returns {*}
  */
-// eslint-disable-next-line no-unused-vars
+
 module.exports = (data, req, res, next) => {
   const payload = getSuccessPayload(data);
   return res.status(STATUS.OK).send(payload);
