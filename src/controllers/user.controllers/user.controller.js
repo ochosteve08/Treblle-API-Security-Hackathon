@@ -1,5 +1,6 @@
 const UserService = require("../../services/user.services/user.services");
 const { userValidation } = require("../../validations");
+const { success, error } = require("../../lib-handler");
 
 const {
   Transaction,
@@ -12,14 +13,21 @@ const registerUser = async (req, res) => {
     await transaction.startTransaction();
     const { email, password } =
       await userValidation.userValidation.validateAsync(req.body);
-     const user = await UserService.signup( email, password);
+    const user = await UserService.signup(email, password);
+    if (!user) {
+      throw error.throwPreconditionFailed({
+        message: "Server Issue! failed to register a user",
+      });
+    }
     // create a token
     const token = await jwt.createToken(user._id);
-    res.status(200).json({ user, token }); 
+    // commit all changes
     await transaction.commitTransaction();
+    return success.handler({ user, token }, req, res, next);
   } catch (error) {
     await transaction.abortTransaction();
-    res.status(400).json({ error: error.message });
+    return error.handler(error, req, res, next);
+   
   } finally {
     await transaction.endSession();
   }
@@ -38,11 +46,13 @@ const userLogin = async (req, res) => {
 
     const token = await jwt.createToken(_id);
 
-    res.status(200).json({ user, token });
     await transaction.commitTransaction();
+    return success.handler({ user, token }, req, res, next);
+   
+   
   } catch (error) {
      await transaction.abortTransaction();
-    res.status(400).json({ error: error.message });
+     return error.handler(error, req, res, next);
   } finally {
     await transaction.endSession();
   }

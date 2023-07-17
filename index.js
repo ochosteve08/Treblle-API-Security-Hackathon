@@ -1,9 +1,10 @@
 // Import external packages
+const {error} =require('./src/lib-handler')
 const express = require("express");
 const treblle = require("@treblle/express");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
-// const cors = require("cors");
+const cors = require("cors");
 const contentType = require("content-type");
 
 
@@ -20,15 +21,12 @@ app.use(express.json());
 app.use((req, res, next) => {
   // Get the value of the Accept header from the request
   const acceptHeader = req.get("Accept");
-
   // Set the default content type to JSON
   let contentTypeHeader = "application/json";
-
   // Check if the Accept header contains specific content types
   if (acceptHeader) {
     // Parse the Accept header to get the list of content types
     const parsedAcceptHeader = contentType.parse(acceptHeader);
-
     // Check if JSON is accepted
     if (parsedAcceptHeader.type === "application/json") {
       contentTypeHeader = "application/json";
@@ -41,16 +39,21 @@ app.use((req, res, next) => {
       contentTypeHeader = "text/html";
     }
   }
-
   // Set the Content-Type header for the response
   res.set("Content-Type", contentTypeHeader);
-
   // Continue to the next middleware or route handler
   next();
 });
 
+app.use(cors());
 
-
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 // Configure Treblle middleware for request monitoring and protection
 app.use(
@@ -61,15 +64,6 @@ app.use(
   })
 );
 
-// app.use(cors());
-
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//   })
-// );
 
 app.use(helmet());
 app.use(
@@ -88,6 +82,16 @@ const limiter = rateLimit({
 
 // Apply rate limiting middleware
 app.use(limiter);
+
+
+// Middleware to set the Allow header
+const setAllowHeader = (req, res, next) => {
+  res.setHeader("Allow", "GET, POST, PUT, DELETE");
+  next();
+};
+
+app.use(setAllowHeader);
+
 
 app.get("/", (req, res) => {
   res.send({ message: "todo API working fine now" });
@@ -121,6 +125,9 @@ app.use("/api/v1", apiRoutes);
 //     res.redirect(`https://${req.headers.host}${req.url}`);
 //   }
 // });
+
+// global error handler
+app.use(error.handler);
 
 const main = async () => {
   console.info("Starting server");
