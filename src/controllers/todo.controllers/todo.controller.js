@@ -20,9 +20,9 @@ const createTodo = async (req, res, next) => {
 
     await transaction.commitTransaction();
     return success.handler({ todo }, req, res, next);
-  } catch (error) {
+  } catch (err) {
     await transaction.abortTransaction();
-    return error.handler(error, req, res, next);
+    return error.handler(err, req, res, next);
   } finally {
     await transaction.endSession();
   }
@@ -42,9 +42,9 @@ const getTodo = async (req, res, next) => {
     }
     await transaction.commitTransaction();
     return success.handler({ todo }, req, res, next);
-  } catch (error) {
+  } catch (err) {
     await transaction.abortTransaction();
-    return error.handler(error, req, res, next);
+    return error.handler(err, req, res, next);
   } finally {
     await transaction.endSession();
   }
@@ -60,9 +60,9 @@ const fetchAllTodo = async (req, res, next) => {
 
     await transaction.commitTransaction();
     return success.handler({ todo }, req, res, next);
-  } catch (error) {
+  } catch (err) {
     await transaction.abortTransaction();
-    return error.handler(error, req, res, next);
+    return error.handler(err, req, res, next);
   } finally {
     await transaction.endSession();
   }
@@ -86,9 +86,9 @@ const updateTodo = async (req, res, next) => {
     });
     await transaction.commitTransaction();
     return success.handler({ updatedTodo }, req, res, next);
-  } catch (error) {
+  } catch (err) {
     await transaction.abortTransaction();
-    return error.handler(error, req, res, next);
+    return error.handler(err, req, res, next);
   } finally {
     await transaction.endSession();
   }
@@ -109,9 +109,9 @@ const deleteTodo = async (req, res, next) => {
     }
     await transaction.commitTransaction();
     return success.handler({ todo }, req, res, next);
-  } catch (error) {
+  } catch (err) {
     await transaction.abortTransaction();
-    return error.handler(error, req, res, next);
+    return error.handler(err, req, res, next);
   } finally {
     await transaction.endSession();
   }
