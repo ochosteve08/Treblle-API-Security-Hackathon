@@ -20,9 +20,11 @@ const todoSchema = new Schema(
       type: String,
       default: uuidv4,
     },
+
     user_id: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: "User",
     },
   },
 
