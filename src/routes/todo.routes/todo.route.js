@@ -6,6 +6,24 @@ const todoRoutes = express.Router();
 // require Auth for all todo
 todoRoutes.use(requireAuth);
 
+/**
+ * @swagger
+ * tags:
+ *   name: Todos
+ *   description: Todo management
+ */
+
+/**
+ * @swagger
+ * /api/v1/todos:
+ *   get:
+ *     summary: Get all todos
+ *     tags: [Todos]
+ *     responses:
+ *       200:
+ *         description: OK
+ */
+
 //GET all  todo
 todoRoutes.get("/", todoController.fetchAllTodo);
 

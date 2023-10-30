@@ -24,9 +24,9 @@ const registerUser = async (req, res) => {
     // commit all changes
     await transaction.commitTransaction();
     return success.handler({ user, token }, req, res, next);
-  } catch (error) {
+  } catch (err) {
     await transaction.abortTransaction();
-    return error.handler(error, req, res, next);
+    return error.handler(err, req, res, next);
    
   } finally {
     await transaction.endSession();
@@ -50,9 +50,9 @@ const userLogin = async (req, res) => {
     return success.handler({ user, token }, req, res, next);
    
    
-  } catch (error) {
+  } catch (err) {
      await transaction.abortTransaction();
-     return error.handler(error, req, res, next);
+     return error.handler(err, req, res, next);
   } finally {
     await transaction.endSession();
   }
