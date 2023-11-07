@@ -1,27 +1,19 @@
 // Import external packages
-const {error} =require('./src/lib-handler')
+const { error } = require("./src/lib-handler");
 const express = require("express");
 const treblle = require("@treblle/express");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const cors = require("cors");
-const contentType = require("content-type");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJson = require("./src/doc/swagger.json");
-
-
-
-
 
 const { connectToMongoDb, environmentVariables } = require("./src/config");
 const apiRoutes = require("./src/routes");
 
-
 const app = express();
 
-
 app.use(express.json());
-
 
 app.use(
   cors({
@@ -31,7 +23,6 @@ app.use(
   })
 );
 
-
 app.use(
   treblle({
     apiKey: process.env.TREBLLE_API_KEY,
@@ -39,7 +30,6 @@ app.use(
     additionalFieldsToMask: [],
   })
 );
-
 
 app.use(helmet());
 app.use(
@@ -50,20 +40,22 @@ app.use(
   })
 );
 
-
 const limiter = rateLimit({
-  windowMs: 60 * 60 * 1000, 
-  max: 60, 
+  windowMs: 60 * 60 * 1000,
+  max: 60,
 });
-
 
 app.use(limiter);
 
-  app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerJson));
+app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerJson));
+app.get("/api/v1/docs.json", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.send(swaggerJson);
+});
 
-  console.log(
-    `Version 1 Docs are available on http://localhost:${environmentVariables.APP_PORT}/api/v1/docs`
-  );
+console.log(
+  `Version 1 Docs are available on http://localhost:${environmentVariables.APP_PORT}/api/v1/docs`
+);
 
 const setAllowHeader = (req, res, next) => {
   res.setHeader("Allow", "GET, POST, PUT, DELETE");
@@ -76,10 +68,7 @@ app.get("/", (req, res) => {
   res.send({ message: "todo API working fine now" });
 });
 
-
 app.use("/api/v1", apiRoutes);
-
-
 
 app.use(error.handler);
 
@@ -95,7 +84,6 @@ const main = async () => {
     } catch (error) {
       console.log(error);
     }
-    
   });
 };
 

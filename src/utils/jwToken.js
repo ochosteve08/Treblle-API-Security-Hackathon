@@ -6,9 +6,7 @@ const createToken = async (userId) =>
   jwt.sign(
     {
       _id: userId,
-      issuer: "myapp",
-      audience: "myapp",
-      expiresIn: "100h",
+      expiresIn: "30m",
     },
     jwtSecret
   );
