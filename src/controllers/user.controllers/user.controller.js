@@ -7,7 +7,7 @@ const {
   jwt,
 } = require("../../utils");
 
-const registerUser = async (req, res) => {
+const registerUser = async (req, res,next) => {
    const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
@@ -19,9 +19,9 @@ const registerUser = async (req, res) => {
         message: "Server Issue! failed to register a user",
       });
     }
-    // create a token
+
     const token = await jwt.createToken(user._id);
-    // commit all changes
+
     await transaction.commitTransaction();
     return success.handler({ user, token }, req, res, next);
   } catch (err) {
@@ -34,13 +34,13 @@ const registerUser = async (req, res) => {
   
 };
 
-const userLogin = async (req, res) => {
+const userLogin = async (req, res,next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
     const { email, password } =
       await userValidation.userLoginValidation.validateAsync(req.body);
-        // login a user
+      
     const user = await UserService.login({ email, password });
     const { _id } = user;
 
