@@ -3,7 +3,7 @@ const Joi = require("joi");
 const addTodoValidation = Joi.object({
   title: Joi.string().required().label("Title"),
   description: Joi.string().required().label("Description"),
-  user_id: Joi.string().required().label("User ID"),
+ 
 });
 
 

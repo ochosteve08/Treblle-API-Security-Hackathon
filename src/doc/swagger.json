@@ -30,16 +30,12 @@
                                     },
                                     "description": {
                                         "type": "string"
-                                    },
-                                    "user_id": {
-                                        "type": "string",
-                                        "description": "User's unique identifier"
                                     }
+                                   
                                 },
                                 "required": [
                                     "title",
-                                    "description",
-                                    "user_id"
+                                    "description"
                                 ]
                             }
                         }
