@@ -10,12 +10,13 @@ const createTodo = async (req, res, next) => {
     await transaction.startTransaction();
     const { title, description } =
       await todoValidation.addTodoValidation.validateAsync(req.body);
-    const user_id = req.user._id;
+    const userId = req.user._id;
+    console.log(userId)
 
     const todo = await todoServices.createTodo({
       title,
       description,
-      user_id,
+      userId,
     });
 
     await transaction.commitTransaction();
@@ -55,8 +56,8 @@ const fetchAllTodo = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const user_id = req.user._id;
-    const todo = await todoServices.fetchAllTodo({ user_id });
+    const userId = req.user._id;
+    const todo = await todoServices.fetchAllTodo({ userId });
 
     await transaction.commitTransaction();
     return success.handler({ todo }, req, res, next);

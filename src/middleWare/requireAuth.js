@@ -16,7 +16,7 @@ const requireAuth = async (req, res, next) => {
     );
   }
   const token = authorization.split(" ")[1];
-  console.log(token)
+  console.log("auth token:",token)
 
   try {
     const decoded = await jwt.verifyToken(token);

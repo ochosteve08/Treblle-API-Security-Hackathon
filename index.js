@@ -7,11 +7,13 @@ const helmet = require("helmet");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJson = require("./src/doc/swagger.json");
+var logger = require("morgan");
 
 const { connectToMongoDb, environmentVariables } = require("./src/config");
 const apiRoutes = require("./src/routes");
 
 const app = express();
+app.use(logger("dev"));
 
 app.use(express.json());
 
