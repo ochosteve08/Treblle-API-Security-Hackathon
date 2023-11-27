@@ -43,7 +43,7 @@ By default, the server will run on `http://localhost:3500`.
     - `TREBLLE_PROJECT_ID`: Project ID
     - `TREBLLE_API_KEY`: API key
     - `APP_PORT` : 3500
-    - `APP_HOST` :<http://localhost>
+    - `APP_HOST` :[http://localhost](http://localhost)
   - Save the file.
 
 ## Todo Resource Schema
@@ -66,11 +66,11 @@ The following API routes are available:
 
 ### Todo Routes
 
-- **GET /api/v1/**: Get all todo lists.
-- **GET /api/v1/todo/:id**: Get a todo item by user.
-- **POST /api/v1/todo**: Create a new todo item by user
-- **PUT /api/v1/todo/:id**: Update a todo item by user.
-- **DELETE /api/v1/todo/:id**: Delete a todo item by user.
+- **GET /api/v1/todos**: Get all todo lists.
+- **GET /api/v1/todos/:id**: Get a todo item by user.
+- **POST /api/v1/todos**: Create a new todo item by user
+- **PUT /api/v1/todos/:id**: Update a todo item by user.
+- **DELETE /api/v1/todos/:id**: Delete a todo item by user.
 
 ## Error Handling
 
@@ -80,13 +80,9 @@ The API implements proper error handling for various scenarios, such as invalid 
 
 - User Registration: Users can create an account by providing their details such as username, email, and password.
 - User Login: Registered users can log in using their credentials.
-
 - Authentication: Authenticated users can access protected routes to create, fetch, update, and delete todo items.
-
 - Create todo list: Authenticated users can create new todo list by providing details such as title, description.
-
 - Update todo list: Authenticated users can update existing todo list by modifying the details such as title, description.
-
 - Delete todo item: Authenticated users can delete a todo item from their list of todo list.
 
 ## Technologies Used
@@ -96,3 +92,25 @@ The API implements proper error handling for various scenarios, such as invalid 
 - Node.js: JavaScript runtime environment for running the server-side code.
 - JSON Web Tokens (JWT): Used for user authentication and authorization.
 - bcrypt: Used for hashing user passwords for security.
+
+
+
+## Documentation
+
+### Swagger Documentation
+
+Access the Swagger documentation for the API by visiting [http://localhost:3500/api/v1/docs](http://localhost:3000/docs). This interactive documentation provides details about available endpoints, request parameters, and response formats.
+
+You can also download the Swagger JSON file directly from [http://localhost:3500/api/v1/docs.json](http://localhost:3000/docs.json).
+
+### Postman Documentation
+
+Explore the Postman documentation to interact with the API. Visit 
+
+the [Postman Documentation](https://documenter.getpostman.com/view/25943148/2s9YeEcsJm) to find detailed information about the API requests, examples, and usage.
+
+License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
