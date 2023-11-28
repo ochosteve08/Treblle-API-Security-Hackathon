@@ -74,6 +74,10 @@ app.use("/api/v1", apiRoutes);
 
 app.use(error.handler);
 
+app.get("/test", async (req, res) => {
+  res.json({ message: "pass!" });
+});
+
 const main = async () => {
   console.info("Starting server");
   await connectToMongoDb();
@@ -90,3 +94,5 @@ const main = async () => {
 };
 
 main();
+
+module.exports = app;
