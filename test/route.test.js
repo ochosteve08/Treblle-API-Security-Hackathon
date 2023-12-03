@@ -52,9 +52,30 @@ describe("TODOS API", () => {
       })
       .set("Authorization", `Bearer ${token}`);
     expect(createTodoResponse.status).toBe(200);
-   
 
     const todoId = createTodoResponse.body.data.todo._id;
+    const fetchTodoResponse = await request(app)
+      .get(`/api/v1/todos/${todoId}`)
+      .set("Authorization", `Bearer ${token}`);
+
+    expect(fetchTodoResponse.status).toBe(200);
+    expect(fetchTodoResponse.body.data.todo._id).toBe(todoId);
+
+    const updateTodoResponse = await request(app)
+      .put(`/api/v1/todos/${todoId}`)
+      .send({
+        title: "updated item",
+        description: "updated description",
+        completed: false,
+      })
+      .set("Authorization", `Bearer ${token}`);
+    expect(updateTodoResponse.status).toBe(200);
+    expect(updateTodoResponse.body.data.updatedTodo.title).toBe("updated item");
+    expect(updateTodoResponse.body.data.updatedTodo.description).toBe(
+      "updated description"
+    );
+    expect(updateTodoResponse.body.data.updatedTodo.completed).toBe(false);
+
     const cleanupResponse = await request(app)
       .delete(`/api/v1/todos/${todoId}`)
       .set("Authorization", `Bearer ${token}`);
