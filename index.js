@@ -25,13 +25,13 @@ app.use(
   })
 );
 
-app.use(
-  treblle({
-    apiKey: process.env.TREBLLE_API_KEY,
-    projectId: process.env.TREBLLE_PROJECT_ID,
-    additionalFieldsToMask: [],
-  })
-);
+// app.use(
+//   treblle({
+//     apiKey: process.env.TREBLLE_API_KEY,
+//     projectId: process.env.TREBLLE_PROJECT_ID,
+//     additionalFieldsToMask: [],
+//   })
+// );
 
 app.use(helmet());
 app.use(
