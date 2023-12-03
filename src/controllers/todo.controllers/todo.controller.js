@@ -11,7 +11,7 @@ const createTodo = async (req, res, next) => {
     const { title, description } =
       await todoValidation.addTodoValidation.validateAsync(req.body);
     const userId = req.user._id;
-    console.log(userId)
+    
 
     const todo = await todoServices.createTodo({
       title,
