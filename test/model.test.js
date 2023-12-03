@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 beforeAll(async function () {
   try {
     await mongoose.connect(process.env.MONGO_URL, {
-      serverSelectionTimeoutMS: 50000,
+     
     });
     console.log("Connected to test database");
   } catch (error) {
