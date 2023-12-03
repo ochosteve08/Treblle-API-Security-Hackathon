@@ -52,7 +52,7 @@ describe("TODOS API", () => {
       })
       .set("Authorization", `Bearer ${token}`);
     expect(createTodoResponse.status).toBe(200);
-    console.log(createTodoResponse.body.data);
+   
 
     const todoId = createTodoResponse.body.data.todo._id;
     const cleanupResponse = await request(app)
