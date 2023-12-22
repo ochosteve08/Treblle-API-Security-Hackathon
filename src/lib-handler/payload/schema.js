@@ -72,7 +72,7 @@ const mongoErrorSchema = ({
   fields.push({
     key: Object.keys(keyPattern).toString(),
     message:
-      "Resource all ready exist with value " +
+      "Resource already exist with value " +
       Object.values(keyValue).toString(),
   });
   const response = {

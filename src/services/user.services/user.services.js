@@ -3,12 +3,11 @@ const bcrypt = require("bcrypt");
 const { success, error } = require("../../lib-handler");
 
 class UserService {
- 
-  static async signup( email, password) {
+  static async signup(email, password) {
     try {
       const exist = await UserModel.findOne({ email });
       if (exist) {
-        throw new Error("Email already in use");
+        throw error.throwConflict({ message: "Email already in use" });
       }
       const saltRounds = 10;
       const hash = await bcrypt.hash(password, saltRounds);
@@ -26,14 +25,14 @@ class UserService {
       const user = await UserModel.findOne({ email });
 
       if (!user) {
-       throw error.throwNotFound({ message: "User not found" });
+        throw error.throwNotFound({ message: "User not found" });
       }
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
-        throw Error("Invalid password");
+        throw error.throwForbiddenError({message: "Invalid password"});
       }
-     
+
       return user;
     } catch (error) {
       throw error;
