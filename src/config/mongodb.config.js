@@ -7,13 +7,12 @@ const connectToMongoDb = async () => {
       useNewurlParser: true,
       useUnifiedTopology: true,
     }); 
-    console.log('connected')
+  
   } catch (error) {
     console.log("Error in connecting to mongodb", error);
-    // throw new Error(error);
+ 
   }
 };
 
-module.exports = {
-  connectToMongoDb,
-};
+module.exports = connectToMongoDb
+
