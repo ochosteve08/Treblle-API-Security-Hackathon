@@ -1,8 +1,9 @@
 const { UserModel } = require("../../models");
 const bcrypt = require("bcrypt");
+const { success, error } = require("../../lib-handler");
 
 class UserService {
-  //signup
+ 
   static async signup( email, password) {
     try {
       const exist = await UserModel.findOne({ email });
@@ -25,7 +26,7 @@ class UserService {
       const user = await UserModel.findOne({ email });
 
       if (!user) {
-        throw new Error("User not found");
+       throw error.throwNotFound({ message: "User not found" });
       }
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
