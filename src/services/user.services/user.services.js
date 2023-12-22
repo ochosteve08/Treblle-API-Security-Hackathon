@@ -13,7 +13,13 @@ class UserService {
       const hash = await bcrypt.hash(password, saltRounds);
       const user = new UserModel({ email, password: hash });
       const savedUser = await user.save();
-      return savedUser;
+       const userResponse = {
+         ...savedUser.toObject(),
+         password: undefined, 
+       };
+
+       return userResponse;
+    
     } catch (error) {
       throw error;
     }
@@ -30,10 +36,13 @@ class UserService {
 
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
-        throw error.throwForbiddenError({message: "Invalid password"});
+        throw error.throwForbiddenError({ message: "Invalid password" });
       }
-
-      return user;
+      const authenticatedUser = await UserModel.findOne({ email })
+        .select("-password")
+        .lean();
+  
+      return authenticatedUser;
     } catch (error) {
       throw error;
     }
