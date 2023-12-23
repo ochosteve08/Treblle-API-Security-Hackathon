@@ -1,1 +1,5 @@
 20231223	23:53:11	20e494f8-b515-4ecf-8e80-a0ff06722e23	POST	/api/v1/users/login	http://localhost:3500
+20231223	23:57:28	e49e1eee-e429-40e5-b714-60742e476828	POST	/api/v1/users/login	http://localhost:3500
+20231224	00:02:57	67269537-8f8f-4e0e-b8ca-03e9831473fb	POST	/api/v1/users/register	http://localhost:3500
+20231224	00:08:21	d60ffa50-d347-491b-87c8-97a84152249f	POST	/api/v1/users/register	http://localhost:3500
+20231224	00:10:35	9549cf72-9d12-42f1-8fda-3433ea0de7bf	POST	/api/v1/users/register	http://localhost:3500

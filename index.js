@@ -58,6 +58,16 @@ app.get("/api/v1/docs.json", (req, res) => {
   res.send(swaggerJson);
 });
 
+app.use((err, req, res, next) => {
+  console.log("error:",err)
+  logEvents(
+    `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${
+      req.headers.origin || "Origin not provided"
+    }${JSON.stringify(req.cookies)}\t`,
+    "errLog.log"
+  );
+});
+
 console.log(
   `Version 1 Docs are available on http://localhost:${environmentVariables.APP_PORT}/api/v1/docs`
 );
@@ -130,6 +140,10 @@ const main = async () => {
     startServer();
   } catch (error) {
     console.error("Failed to connect to MongoDB:", error);
+      logEvents(
+        `${error.no}:${error.code}\t${error.syscall}\t${error.hostname}`,
+        "mongoErrorLog.log"
+      );
   }
 };
 
