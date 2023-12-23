@@ -26,7 +26,7 @@ const logger = (req, res, next) => {
     `${req.method}\t${req.url}\t${req.headers.origin || "Origin not provided"}`,
     "reqlog.log"
   );
-  console.log(`${req.method} ${req.url}`);
+
   next();
 };
 

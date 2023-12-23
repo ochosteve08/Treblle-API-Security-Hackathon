@@ -7,14 +7,16 @@ const helmet = require("helmet");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJson = require("./src/doc/swagger.json");
-const logger = require("morgan");
+const log = require("morgan");
 const mongoose = require("mongoose");
+const { logEvents, logger } = require("./src/middleWare/logger");
 
 const { connectToMongoDb, environmentVariables } = require("./src/config");
 const apiRoutes = require("./src/routes");
 
 const app = express();
-app.use(logger("dev"));
+app.use(log("dev"));
+app.use(logger);
 
 app.use(express.json());
 
