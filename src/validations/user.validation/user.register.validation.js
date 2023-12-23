@@ -11,7 +11,11 @@ const userValidation = Joi.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@%+\\/!#?$\[\]{}()_\-.])[A-Za-z\d@%+\\/!#?$\[\]{}()_\-.]{8,}$/
     )
     .min(8)
-    .max(128),
+    .max(128)
+    .message(
+      "Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character. Minimum length is 8 characters."
+    )
+    .required(),
 });
 
 module.exports = {

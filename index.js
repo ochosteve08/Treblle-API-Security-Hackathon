@@ -7,7 +7,8 @@ const helmet = require("helmet");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJson = require("./src/doc/swagger.json");
-var logger = require("morgan");
+const logger = require("morgan");
+const mongoose = require("mongoose");
 
 const { connectToMongoDb, environmentVariables } = require("./src/config");
 const apiRoutes = require("./src/routes");
@@ -74,14 +75,40 @@ app.use("/api/v1", apiRoutes);
 
 app.use(error.handler);
 
-app.get("/test", async (req, res) => {
-  res.json({ message: "pass!" });
-});
+// const main = async () => {
+//   console.info("Starting server");
+//   await connectToMongoDb();
+//   console.info("Connected to MongoDB");
+//   app.listen(environmentVariables.APP_PORT || 8000, (err) => {
+//     try {
+//       console.info(
+//         `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
+//       );
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   });
+// };
 
-const main = async () => {
-  console.info("Starting server");
-  await connectToMongoDb();
-  console.info("Connected to MongoDB");
+// main();
+
+const connectToMongo = async () => {
+  return new Promise((resolve, reject) => {
+    mongoose.connection.once("open", () => {
+      console.info("Connected to MongoDB");
+      resolve();
+    });
+
+    mongoose.connection.on("error", (error) => {
+      console.log(error);
+      reject(error);
+    });
+
+    connectToMongoDb();
+  });
+};
+
+const startServer = () => {
   app.listen(environmentVariables.APP_PORT || 8000, (err) => {
     try {
       console.info(
@@ -91,6 +118,17 @@ const main = async () => {
       console.log(error);
     }
   });
+};
+
+const main = async () => {
+  console.info("Starting server");
+
+  try {
+    await connectToMongo();
+    startServer();
+  } catch (error) {
+    console.error("Failed to connect to MongoDB:", error);
+  }
 };
 
 main();

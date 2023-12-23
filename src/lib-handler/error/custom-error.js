@@ -62,7 +62,7 @@ const throwPreconditionFailed = ({
  * @param field_name
  */
 const throwCustomValidationError = ({
-  message = "Validation Error",
+  // message = "Validation Error",
   custom_key,
   fields,
   recovery,

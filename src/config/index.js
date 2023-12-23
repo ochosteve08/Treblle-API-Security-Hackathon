@@ -1,5 +1,5 @@
 const environmentVariables = require("./env");
-const { connectToMongoDb } = require("./mongodb.config");
+const  connectToMongoDb  = require("./mongodb.config");
 
 module.exports = {
   environmentVariables,
