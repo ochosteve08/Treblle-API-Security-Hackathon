@@ -59,13 +59,11 @@ app.get("/api/v1/docs.json", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log("error:",err)
-  logEvents(
-    `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${
-      req.headers.origin || "Origin not provided"
-    }${JSON.stringify(req.cookies)}\t`,
-    "errLog.log"
-  );
+  const errDetails = `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${
+    req.headers.origin || "Origin not provided"
+  }\t${req.ip}`;
+  logEvents(errDetails, "errLog.log");
+  console.error(errDetails);
 });
 
 console.log(
@@ -86,24 +84,6 @@ app.get("/", (req, res) => {
 app.use("/api/v1", apiRoutes);
 
 app.use(error.handler);
-
-// const main = async () => {
-//   console.info("Starting server");
-//   await connectToMongoDb();
-//   console.info("Connected to MongoDB");
-//   app.listen(environmentVariables.APP_PORT || 8000, (err) => {
-//     try {
-//       console.info(
-//         `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
-//       );
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   });
-// };
-
-// main();
-
 const connectToMongo = async () => {
   return new Promise((resolve, reject) => {
     mongoose.connection.once("open", () => {
@@ -140,10 +120,10 @@ const main = async () => {
     startServer();
   } catch (error) {
     console.error("Failed to connect to MongoDB:", error);
-      logEvents(
-        `${error.no}:${error.code}\t${error.syscall}\t${error.hostname}`,
-        "mongoErrorLog.log"
-      );
+    logEvents(
+      `${error.no}:${error.code}\t${error.syscall}\t${error.hostname}`,
+      "mongoErrorLog.log"
+    );
   }
 };
 
