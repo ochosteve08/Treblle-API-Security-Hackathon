@@ -1,5 +1,5 @@
 const handler = require("./handler");
-const { getErrorPayload } = require("../payload");
+
 const {
   throwConflict,
   throwCustomValidationError,

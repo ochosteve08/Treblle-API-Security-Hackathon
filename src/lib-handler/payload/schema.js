@@ -72,7 +72,7 @@ const mongoErrorSchema = ({
   fields.push({
     key: Object.keys(keyPattern).toString(),
     message:
-      "Resource already exist with value " +
+      "Resource all ready exist with value " +
       Object.values(keyValue).toString(),
   });
   const response = {
@@ -129,12 +129,13 @@ const joiValidationErrorSchema = ({
   };
 
   details.map((e) => {
+  
     response.error.fields.push({
       key: e.context.key,
       type: e.type,
       message: e.message.split(":")[0],
     });
-
+  console.log("display message:", e.message);
     return e;
   });
 
