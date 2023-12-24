@@ -1,3 +1,22 @@
 20231224	05:22:58	a41a5289-9e27-48d0-a04d-7a6a63bd4f5d	Too Many Requests: Too many login attempts from this IP, please try again after 20 minutes	POST	/login	http://localhost:3500
 20231224	05:49:04	cdf6bdd0-2b5b-4fe5-91e6-729dc12f7518	Forbidden: Invalid password	POST	/login	http://localhost:3500	::1
 20231224	05:49:50	270dbf2f-fa04-4bb8-9bff-8e2e8a9774fe	ValidationError: "Email" must be a valid email	POST	/login	http://localhost:3500	::1
+20231224	17:59:57	9fad4a44-433b-4a1a-a1bb-8ef9bf37c1cb	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/css/style.css	Origin not provided	::1
+20231224	17:59:57	e2f6493a-2b90-42fd-84c9-ed9256d3ef30	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:00:26	40388fe3-6674-4ba3-b73a-0b0e0aa0b537	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/css/style.css	Origin not provided	::1
+20231224	18:00:26	7f99fa45-ae44-4c78-bd25-ae9d0e11e472	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:01:58	18e4a08c-cdba-4006-968e-c9576645c145	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/css/style.css	Origin not provided	::1
+20231224	18:01:58	e66149cd-2c47-4120-a03e-78b010dbf4a2	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:02:00	84c54f44-2d11-483a-a07b-a10f4353d8f0	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/css/style.css	Origin not provided	::1
+20231224	18:02:00	d3858e0b-7e2e-46da-89bc-9b9829ac53bb	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:03:43	d71b93d8-f146-4c2e-85de-3e22ff2982bb	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\src\routes\views\index.html'	GET	/	Origin not provided	::1
+20231224	18:04:28	bfac8b68-6e63-45e5-a011-5436ca7d9472	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/css/style.css	Origin not provided	::1
+20231224	18:04:28	ab1a69f5-9baf-41a5-90b2-fc68772f8539	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:05:17	f001063b-2edb-4bac-a9d4-e9bddf815bb5	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:05:49	eb6fa7fb-b1a9-4e37-ac85-10d23d31bd41	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/44	Origin not provided	::1
+20231224	18:05:50	53148853-bc1c-4eaa-a4d7-c28de9e9a4ed	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:06:04	2f30b46e-4adc-4031-af9f-fca7a3bfd558	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/api	Origin not provided	::1
+20231224	18:06:04	9f576f93-22c3-450f-9368-cea2361a18dd	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:06:34	b2db0957-6a76-45b1-a25d-5d0712067928	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:07:29	32c9a11b-5da1-4648-968d-b2b40992dbbb	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231224	18:07:33	4fb03410-860e-40d3-a7ec-489f06c5535d	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
