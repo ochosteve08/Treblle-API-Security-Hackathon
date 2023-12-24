@@ -69,15 +69,6 @@ app.get("/api/v1/docs.json", (req, res) => {
   res.send(swaggerJson);
 });
 
-app.use((err, req, res, next) => {
-  const errDetails = `${err.name}: ${err.message}\t${req.method}\t${req.url}\t${
-    req.headers.origin || "Origin not provided"
-  }\t${req.ip}`;
-  logEvents(errDetails, "errLog.log");
-  console.error(errDetails);
-});
-
-
 
 const setAllowHeader = (req, res, next) => {
   res.setHeader("Allow", "GET, POST, PUT, DELETE");
@@ -87,7 +78,7 @@ const setAllowHeader = (req, res, next) => {
 app.use(setAllowHeader);
 
 app.get("/", (req, res) => {
-  res.send({ message: "todo API working fine now" });
+  res.send({ message: "todo API working fine" });
 });
 
 app.use("/api/v1", apiRoutes);
@@ -132,10 +123,16 @@ const main = async () => {
     startServer();
   } catch (error) {
     console.error("Failed to connect to MongoDB:", error);
-    logEvents(
-      `${error.no}:${error.code}\t${error.syscall}\t${error.hostname}`,
-      "mongoErrorLog.log"
-    );
+    const errno = error.errno || "N/A";
+    const code = error.code || "N/A";
+    const codeName = error.codeName || "N/A";
+    const syscall = error.syscall || "N/A";
+    const hostname = error.hostname || "N/A";
+    const ok = error.ok || "N/A";
+    const connectionGeneration = error.connectionGeneration || "N/A";
+    const errorMessage = `Errno:${errno}\tCode:${code}\tCodeName:${codeName}\tSyscall:${syscall}\tHostname:${hostname}\tOK:${ok}\tConnectionGeneration:${connectionGeneration}\t`;
+
+    logEvents(errorMessage, "mongoErrorLog.log");
   }
 };
 
