@@ -1,1 +1,3 @@
 20231224	05:22:58	a41a5289-9e27-48d0-a04d-7a6a63bd4f5d	Too Many Requests: Too many login attempts from this IP, please try again after 20 minutes	POST	/login	http://localhost:3500
+20231224	05:49:04	cdf6bdd0-2b5b-4fe5-91e6-729dc12f7518	Forbidden: Invalid password	POST	/login	http://localhost:3500	::1
+20231224	05:49:50	270dbf2f-fa04-4bb8-9bff-8e2e8a9774fe	ValidationError: "Email" must be a valid email	POST	/login	http://localhost:3500	::1

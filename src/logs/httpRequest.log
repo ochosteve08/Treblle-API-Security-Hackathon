@@ -11,3 +11,5 @@
 20231224	05:22:53	d1baacb3-10c0-4fd6-8d41-fe365ea97d01	POST /api/v1/users/login 403 129 - 150.990 ms
 20231224	05:22:55	b66c336e-4e9e-4d02-bc87-64a7d9b41c7e	POST /api/v1/users/login 403 129 - 220.483 ms
 20231224	05:22:58	0ce3f1ef-c05f-4987-895a-776242e6855d	POST /api/v1/users/login 429 85 - 3.055 ms
+20231224	05:49:04	0d2afb38-5391-4ba2-abb8-54bdb1ffed03	POST /api/v1/users/login 403 129 - 202.833 ms
+20231224	05:49:50	4bbcb92c-e67d-4788-afd3-a7c8ff65ea07	POST /api/v1/users/login 400 227 - 30.043 ms
