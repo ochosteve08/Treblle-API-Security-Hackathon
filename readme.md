@@ -1,6 +1,6 @@
-# Todo Task RESTful API
+# Task Management API
 
-This is a  RESTful API built with Node.js and Express.js that allows authenticated users to perform CRUD operations on a "Todo" resource.
+This is a  Task Management API built with Node.js and Express.js that allows authenticated users to perform CRUD operations on a "task" resource.
 
 ## Getting Started
 
@@ -46,14 +46,14 @@ By default, the server will run on `http://localhost:3500`.
     - `APP_HOST` :[http://localhost](http://localhost)
   - Save the file.
 
-## Todo Resource Schema
+## Task Schema
 
-A todo resource has the following fields:
+A task resource has the following fields:
 
-- `id`: The unique identifier of the todo (automatically generated).
-- `title`: The title of the todo.
-- `description`: The description of the todo.
-- `completed`: A flag indicating whether the todo is completed or not.
+- `id`: The unique identifier of the task (automatically generated).
+- `title`: The title of the task.
+- `description`: The description of the task.
+- `completed`: A flag indicating whether the task is completed or not.
 
 ## API Routes
 
@@ -64,13 +64,13 @@ The following API routes are available:
 - **POST /api/v1/users/register**: Register a new user.
 - **POST /api/v1/users/login**: Log in an existing user.
 
-### Todo Routes
+### Task Routes
 
-- **GET /api/v1/todos**: Get all todo lists.
-- **GET /api/v1/todos/:id**: Get a todo item by user.
-- **POST /api/v1/todos**: Create a new todo item by user
-- **PUT /api/v1/todos/:id**: Update a todo item by user.
-- **DELETE /api/v1/todos/:id**: Delete a todo item by user.
+- **GET /api/v1/tasks**: Get all task lists.
+- **GET /api/v1/tasks/:id**: Get a task item by user.
+- **POST /api/v1/tasks**: Create a new task item by user
+- **PUT /api/v1/tasks/:id**: Update a task item by user.
+- **DELETE /api/v1/tasks/:id**: Delete a task item by user.
 
 ## Error Handling
 
@@ -80,10 +80,10 @@ The API implements proper error handling for various scenarios, such as invalid 
 
 - User Registration: Users can create an account by providing their details such as username, email, and password.
 - User Login: Registered users can log in using their credentials.
-- Authentication: Authenticated users can access protected routes to create, fetch, update, and delete todo items.
-- Create todo list: Authenticated users can create new todo list by providing details such as title, description.
-- Update todo list: Authenticated users can update existing todo list by modifying the details such as title, description.
-- Delete todo item: Authenticated users can delete a todo item from their list of todo list.
+- Authentication: Authenticated users can access protected routes to create, fetch, update, and delete tasks.
+- Create a task: Authenticated users can create new task by providing details such as title, description.
+- Update a task: Authenticated users can update existing task by modifying the details such as title, description.
+- Delete a task: Authenticated users can delete a task from their list of tasks.
 
 ## Technologies Used
 
@@ -92,8 +92,6 @@ The API implements proper error handling for various scenarios, such as invalid 
 - Node.js: JavaScript runtime environment for running the server-side code.
 - JSON Web Tokens (JWT): Used for user authentication and authorization.
 - bcrypt: Used for hashing user passwords for security.
-
-
 
 ## Documentation
 
@@ -105,7 +103,7 @@ You can also download the Swagger JSON file directly from [http://localhost:3500
 
 ### Postman Documentation
 
-Explore the Postman documentation to interact with the API. Visit 
+Explore the Postman documentation to interact with the API. Visit
 
 the [Postman Documentation](https://documenter.getpostman.com/view/25943148/2s9YeEcsJm) to find detailed information about the API requests, examples, and usage.
 
