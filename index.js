@@ -17,6 +17,17 @@ const apiRoutes = require("./src/routes");
 const app = express();
 app.use(log("dev"));
 app.use(logger);
+log.token("id", function getId(req) {
+  return req.id;
+});
+const stream = {
+  write: (message) => logEvents(message.trim(), "httpRequest.log"), // Here, 'httpRequest.log' is the file name where you want to store HTTP request logs
+};
+app.use(
+  log(":method :url :status :res[content-length] - :response-time ms", {
+    stream,
+  })
+);
 
 app.use(express.json());
 
@@ -66,9 +77,7 @@ app.use((err, req, res, next) => {
   console.error(errDetails);
 });
 
-console.log(
-  `Version 1 Docs are available on http://localhost:${environmentVariables.APP_PORT}/api/v1/docs`
-);
+
 
 const setAllowHeader = (req, res, next) => {
   res.setHeader("Allow", "GET, POST, PUT, DELETE");
@@ -105,6 +114,9 @@ const startServer = () => {
     try {
       console.info(
         `Server running on ${environmentVariables.APP_HOST}:${environmentVariables.APP_PORT}`
+      );
+      console.log(
+        `swagger Docs are available on http://localhost:${environmentVariables.APP_PORT}/api/v1/docs`
       );
     } catch (error) {
       console.log(error);
