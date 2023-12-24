@@ -3,3 +3,4 @@
 20231224	00:02:57	67269537-8f8f-4e0e-b8ca-03e9831473fb	POST	/api/v1/users/register	http://localhost:3500
 20231224	00:08:21	d60ffa50-d347-491b-87c8-97a84152249f	POST	/api/v1/users/register	http://localhost:3500
 20231224	00:10:35	9549cf72-9d12-42f1-8fda-3433ea0de7bf	POST	/api/v1/users/register	http://localhost:3500
+20231224	04:42:02	1cc33b51-bf6a-418c-aa78-d8a38841db0c	POST	/api/v1/users/login	http://localhost:3500
