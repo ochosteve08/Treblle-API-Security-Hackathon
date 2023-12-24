@@ -10,7 +10,7 @@ const swaggerJson = require("./src/doc/swagger.json");
 const log = require("morgan");
 const mongoose = require("mongoose");
 const { logEvents, logger } = require("./src/middleWare/logger");
-
+const path = require("path");
 const { connectToMongoDb, environmentVariables } = require("./src/config");
 const apiRoutes = require("./src/routes");
 
@@ -30,6 +30,8 @@ app.use(
 );
 
 app.use(express.json());
+app.use("/", express.static(path.join(__dirname,".","src", "public")));
+app.use("/", require("./src/routes/root"));
 
 app.use(
   cors({
@@ -47,7 +49,6 @@ app.use(
 //   })
 // );
 
-app.use(helmet());
 app.use(
   helmet({
     frameguard: {
@@ -70,16 +71,13 @@ app.get("/api/v1/docs.json", (req, res) => {
 });
 
 
+
 const setAllowHeader = (req, res, next) => {
   res.setHeader("Allow", "GET, POST, PUT, DELETE");
   next();
 };
 
 app.use(setAllowHeader);
-
-app.get("/", (req, res) => {
-  res.send({ message: "todo API working fine" });
-});
 
 app.use("/api/v1", apiRoutes);
 

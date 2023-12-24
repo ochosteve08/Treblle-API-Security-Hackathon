@@ -19,3 +19,38 @@
 20231224	05:47:48	f05e9a31-bdda-4451-9cc2-2bf373233999	POST	/api/v1/users/login	http://localhost:3500
 20231224	05:49:04	300368de-31bb-4fa3-a6e8-cd46273b0a16	POST	/api/v1/users/login	http://localhost:3500
 20231224	05:49:50	8dbc4c33-0548-4bf3-9e45-f2c29044a63e	POST	/api/v1/users/login	http://localhost:3500
+20231224	17:59:56	4542c040-981f-463e-9d27-b67a2875692c	GET	/	Origin not provided
+20231224	17:59:57	208dde59-8879-4c66-9371-0106eefcc115	GET	/css/style.css	Origin not provided
+20231224	17:59:57	e61027cf-6495-4156-8b60-14658cff2643	GET	/favicon.ico	Origin not provided
+20231224	18:00:26	cebaaf87-e3ad-4640-937d-3401d2414316	GET	/	Origin not provided
+20231224	18:00:26	f64c6d2b-a4a3-465f-9ffe-1d245693a98c	GET	/css/style.css	Origin not provided
+20231224	18:00:26	bd745725-e3b9-48bc-a5f4-3133fc185a29	GET	/favicon.ico	Origin not provided
+20231224	18:01:58	8f2bdf5b-4d59-498a-987c-bab9da3de6d6	GET	/	Origin not provided
+20231224	18:01:58	52630470-95b7-46b9-a8e5-2814c73c8e80	GET	/css/style.css	Origin not provided
+20231224	18:01:58	e5b4f091-75a6-44e9-99c0-4a1a3b69c0b9	GET	/favicon.ico	Origin not provided
+20231224	18:01:59	0e406513-36c5-4ada-9754-387980ee2887	GET	/	Origin not provided
+20231224	18:02:00	dc17bc1e-d73e-43ea-aa66-41f4aa504093	GET	/css/style.css	Origin not provided
+20231224	18:02:00	b92443e9-3961-481b-9f74-23e9fa02e4d1	GET	/favicon.ico	Origin not provided
+20231224	18:03:42	62efa6de-6ed3-453d-8790-ae21b2113b4a	GET	/	Origin not provided
+20231224	18:04:27	81a7c6cb-fe85-49c0-82ca-c7119a4c2a0c	GET	/	Origin not provided
+20231224	18:04:28	6e57eada-dd4a-4961-a093-d28cac79941c	GET	/css/style.css	Origin not provided
+20231224	18:04:28	0ca586f7-afbc-44be-bc10-043a35e7c741	GET	/favicon.ico	Origin not provided
+20231224	18:05:17	cf6de0fe-219a-4256-b026-6d865117fc34	GET	/	Origin not provided
+20231224	18:05:17	32bd2e43-4a99-44d4-a7e1-e76a1498f7b5	GET	/css/style.css	Origin not provided
+20231224	18:05:17	22ed5039-dd1c-485c-8335-5b1e35bf45d0	GET	/favicon.ico	Origin not provided
+20231224	18:05:49	c6bafd90-ef78-4abc-bf84-5b37e52389cb	GET	/44	Origin not provided
+20231224	18:05:50	7341fb86-a912-4bf6-a428-075c656c734c	GET	/favicon.ico	Origin not provided
+20231224	18:06:04	4d4146eb-acd4-494d-9d52-a14492a45d29	GET	/api	Origin not provided
+20231224	18:06:04	c573d97e-dad4-4d99-b3ea-ba8cee1408ac	GET	/favicon.ico	Origin not provided
+20231224	18:06:33	17115a2b-9aac-4613-b7b9-73b99c59c8d6	GET	/	Origin not provided
+20231224	18:06:33	efa2f60d-b3de-47c7-a5e6-5ffc97168d55	GET	/css/style.css	Origin not provided
+20231224	18:06:34	a53eb083-fe75-49ee-93d0-327d470ecc98	GET	/favicon.ico	Origin not provided
+20231224	18:07:28	3797b26d-8693-46f8-a27d-78a700706657	GET	/	Origin not provided
+20231224	18:07:28	bf6743da-7346-4803-8577-c6a49037c843	GET	/css/style.css	Origin not provided
+20231224	18:07:29	666b8c3a-9814-49af-9920-880a9996e1ae	GET	/favicon.ico	Origin not provided
+20231224	18:07:32	4753a843-df0e-4918-a7db-97e7c9d512ff	GET	/	Origin not provided
+20231224	18:07:32	e7f748c4-c89a-4079-be90-27a6ad549fee	GET	/css/style.css	Origin not provided
+20231224	18:07:33	bfeebd45-0a11-4453-a68a-0fde701d6083	GET	/favicon.ico	Origin not provided
+20231224	18:08:07	5fa5eb6e-66a2-47d3-b4af-64fecb2b469b	GET	/	Origin not provided
+20231224	18:08:07	6f873ce1-5ee9-45ea-b665-b1b4fc0d6a26	GET	/css/style.css	Origin not provided
+20231224	18:08:07	7546fd13-461f-49a8-a40a-b56a74eea1f1	GET	/favicon.ico	Origin not provided
