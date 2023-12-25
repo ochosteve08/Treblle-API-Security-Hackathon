@@ -54,3 +54,12 @@
 20231224	18:08:07	5fa5eb6e-66a2-47d3-b4af-64fecb2b469b	GET	/	Origin not provided
 20231224	18:08:07	6f873ce1-5ee9-45ea-b665-b1b4fc0d6a26	GET	/css/style.css	Origin not provided
 20231224	18:08:07	7546fd13-461f-49a8-a40a-b56a74eea1f1	GET	/favicon.ico	Origin not provided
+20231225	03:35:28	ec113e43-0827-47ae-a059-0dcee66dfd4f	GET	/api/v1/docs/	Origin not provided
+20231225	03:35:28	86254b8e-02ea-4738-92ac-db679bae28d1	GET	/api/v1/docs/swagger-ui.css	Origin not provided
+20231225	03:35:28	5371e444-c32c-4097-a818-9c7d5c74843f	GET	/api/v1/docs/swagger-ui-bundle.js	Origin not provided
+20231225	03:35:28	ce24f5ae-9a27-4d43-8673-cdf257b45e5d	GET	/api/v1/docs/swagger-ui-init.js	Origin not provided
+20231225	03:35:28	73325315-8797-4078-b615-e39329811dba	GET	/api/v1/docs/swagger-ui-standalone-preset.js	Origin not provided
+20231225	03:35:28	579f6373-f407-423a-ae17-ddef2a25f002	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
+20231225	03:35:29	c4f24593-4477-437c-a93a-3edb348a63b2	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
+20231225	03:35:33	388d6a31-07bd-4250-a8ff-50c1793553a6	GET	/	Origin not provided
+20231225	03:35:33	3db43808-937e-4570-b3ef-f9dac6213e68	GET	/css/style.css	Origin not provided

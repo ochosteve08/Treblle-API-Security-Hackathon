@@ -22,10 +22,17 @@ const updateTodo = async ({ title, description, completed, id }) =>
     { new: true }
   );
 
+const searchTodo = async (query)=>{
+  const todos  = await todoModel.find(query)
+  return todos;
+
+}
+
 module.exports = {
   createTodo,
   fetchAllTodo,
   getTodo,
   deleteTodo,
   updateTodo,
+  searchTodo,
 };
