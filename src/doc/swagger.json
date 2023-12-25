@@ -1,14 +1,14 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "TODO API Documentation",
+        "title": "Task Management API Documentation",
         "version": "1.0.0",
-        "description": "API documentation for managing TODO items"
+        "description": "API documentation for task management"
     },
     "servers": [
         {
             "url": "http://localhost:3500/api/v1",
-            "description": "TODO App local server"
+            "description": "Task Management App local server"
         }
     ],
     "paths": {
@@ -31,7 +31,6 @@
                                     "description": {
                                         "type": "string"
                                     }
-                                   
                                 },
                                 "required": [
                                     "title",
