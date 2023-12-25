@@ -1,1 +1,3 @@
 20231224	00:11:39	4d51758a-f810-42eb-ba81-81b85d3bdcb6	undefined:undefined	undefined	undefined
+20231226	00:09:49	f6e672df-f344-4cbc-8f2a-dde34869556a	Errno:N/A	Code:ECONNREFUSED	CodeName:N/A	Syscall:querySrv	Hostname:_mongodb._tcp.cluster0.spjtcfn.mongodb.net	OK:N/A	ConnectionGeneration:N/A	
+20231226	00:10:30	03a6af73-9f77-4b4f-a9a6-631a937e7221	Errno:N/A	Code:ECONNREFUSED	CodeName:N/A	Syscall:querySrv	Hostname:_mongodb._tcp.cluster0.spjtcfn.mongodb.net	OK:N/A	ConnectionGeneration:N/A	
