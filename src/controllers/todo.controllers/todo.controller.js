@@ -11,7 +11,6 @@ const createTodo = async (req, res, next) => {
     const { title, description } =
       await todoValidation.addTodoValidation.validateAsync(req.body);
     const userId = req.user._id;
-    
 
     const todo = await todoServices.createTodo({
       title,
@@ -118,10 +117,39 @@ const deleteTodo = async (req, res, next) => {
   }
 };
 
+const searchByTitleOrDescription = async (req, res, next) => {
+  const transaction = await Transaction.startSession();
+  const { title, description } = req.query;
+
+  try {
+    await transaction.startTransaction();
+    let query = {};
+    if (title) {
+      query.title = { $regex: title, $options: "i" };
+    }
+    if (description) {
+      query.description = { $regex: description, $options: "i" };
+    }
+    const todos = await todoServices.searchTodo(query);
+    if (!todos) {
+      throw error.throwNotFound({ message: "todos not found" });
+    }
+
+    await transaction.commitTransaction();
+    return success.handler({ todos }, req, res, next);
+  } catch (err) {
+    await transaction.abortTransaction();
+    return error.handler(err, req, res, next);
+  } finally {
+    await transaction.endSession();
+  }
+};
+
 module.exports = {
   createTodo,
   fetchAllTodo,
   getTodo,
   deleteTodo,
   updateTodo,
+  searchByTitleOrDescription,
 };
