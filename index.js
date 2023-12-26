@@ -62,6 +62,12 @@ const limiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   max: 60,
   message: "Too many requests from this IP, Please try again in an hour",
+  keyGenerator: (req) => {
+    // Use a combination of client IP and another factor as the key
+    return (
+      req.ip + "-" + (req.headers[`${environmentVariables.X_API_KEY}`] || "")
+    ); // Replace 'x-api-key' with the actual header you want to use as an additional factor
+  },
 });
 
 app.use(limiter);
