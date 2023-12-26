@@ -72,16 +72,52 @@
                     "Todo"
                 ],
                 "summary": "Retrieve all TODO items",
-                "description": "Endpoint to fetch all TODO items for a user",
+                "description": "fetch all TODO items for a user",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of results to show (default is 20)",
+                        "schema": {
+                            "type": "integer",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "current page",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "List of TODO items",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TodoItem"
+                                    "type": "object",
+                                    "properties": {
+                                        "todo": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/TodoItem"
+                                            }
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        },
+                                        "totalPages": {
+                                            "type": "integer"
+                                        },
+                                        "limit": {
+                                            "type": "integer"
+                                        },
+                                        "currentPage": {
+                                            "type": "integer"
+                                        }
                                     }
                                 }
                             }

@@ -20,3 +20,8 @@
 20231224	18:06:34	b2db0957-6a76-45b1-a25d-5d0712067928	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
 20231224	18:07:29	32c9a11b-5da1-4648-968d-b2b40992dbbb	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
 20231224	18:07:33	4fb03410-860e-40d3-a7ec-489f06c5535d	Error: ENOENT: no such file or directory, stat 'C:\Users\user\Desktop\PROJECT\nodejs\treblle\views\404.html'	GET	/favicon.ico	Origin not provided	::1
+20231226	17:51:16	53db1ef0-4b2e-4fbd-aac2-2e355acefebd	undefined: undefined	GET	/	Origin not provided	::1
+20231226	20:28:32	9fec5f82-513d-4d78-9e64-509a80b4a32b	TypeError: todoModel.find(...).sort(...).skip(...).limit(...).toArray is not a function	GET	/?limit=20	Origin not provided	::1
+20231226	20:29:45	615034e8-6b2b-4b5b-a940-5f7f411e21ad	undefined: undefined	GET	/?limit=20	Origin not provided	::1
+20231226	20:41:10	3ecb5c23-611c-4a26-9239-e6d3e9c0f03d	undefined: undefined	GET	/?limit=20	Origin not provided	::1
+20231226	20:43:02	378a37b6-6424-4791-be66-a31e30bcef1b	undefined: undefined	GET	/?limit=20	Origin not provided	::1

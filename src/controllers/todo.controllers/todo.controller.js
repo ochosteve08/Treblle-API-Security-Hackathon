@@ -2,6 +2,7 @@ const { todoServices } = require("../../services");
 const { todoValidation } = require("../../validations");
 const { Transaction } = require("../../utils");
 const { success, error } = require("../../lib-handler");
+const { todoModel } = require("../../models");
 
 // create a new todo item
 const createTodo = async (req, res, next) => {
@@ -55,11 +56,17 @@ const fetchAllTodo = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
     await transaction.startTransaction();
-    const userId = req.user._id;
-    const todo = await todoServices.fetchAllTodo({ userId });
+     const userId = req.user._id;
+     const page = parseInt(req.query.page || 1);
+     const limit = parseInt(req.query.limit) || 20;
+     const startIndex = (page - 1) * limit;
+
+ 
+
+    const todos = await todoServices.fetchAllTodo({ userId, page, limit, startIndex });
 
     await transaction.commitTransaction();
-    return success.handler({ todo }, req, res, next);
+    return success.handler(todos, req, res, next);
   } catch (err) {
     await transaction.abortTransaction();
     return error.handler(err, req, res, next);
