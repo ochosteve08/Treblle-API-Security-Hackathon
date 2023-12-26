@@ -97,9 +97,9 @@ The API implements proper error handling for various scenarios, such as invalid 
 
 ### Swagger Documentation
 
-Access the Swagger documentation for the API by visiting [http://localhost:3500/api/v1/docs](http://localhost:3000/docs). This interactive documentation provides details about available endpoints, request parameters, and response formats.
+Access the Swagger documentation for the API by visiting [production url](https://task-management-16d6.onrender.com/api/v1/docs/). This interactive documentation provides details about available endpoints, request parameters, and response formats.
 
-You can also download the Swagger JSON file directly from [http://localhost:3500/api/v1/docs.json](http://localhost:3000/docs.json).
+You can also download the Swagger JSON file directly from [swagger json](https://task-management-16d6.onrender.com/api/v1/docs/.json).
 
 ### Postman Documentation
 
