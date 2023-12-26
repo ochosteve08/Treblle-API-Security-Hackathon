@@ -8,12 +8,10 @@ const requireAuth = async (req, res, next) => {
     !authorization ||
     (authorization && !authorization.startsWith("Bearer"))
   ) {
-    return error.handler(
-      { error: "Authorization token required" },
-      req,
-      res,
-      next
-    );
+   
+    return error.throwReauthentication({
+      message: "Authorization token required",
+    });
   }
   const token = authorization.split(" ")[1];
 
@@ -26,7 +24,9 @@ const requireAuth = async (req, res, next) => {
 
     next();
   } catch (err) {
-    return error.handler({ err: "Request is not authorized" }, req, res, next);
+
+    
+      return error.handler(err, req, res, next);
   }
 };
 

@@ -77,3 +77,42 @@
 20231226	01:09:58	acbef8a9-f667-4418-9322-aa058ff34d57	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
 20231226	01:09:58	9b2995c1-9dc0-431f-a656-0e0384dd186a	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
 20231226	01:10:25	6f4dace3-e4bc-46c3-8bf0-efd4afcea75e	POST	/api/v1/users/register	http://localhost:3500
+20231226	12:55:18	f9dfc216-5481-4cc5-a8d2-7795eefcf2f1	POST	/api/v1/users/register	http://localhost:3500
+20231226	12:56:13	d3b57d50-b021-47b7-84a3-e2be72b7e458	GET	/api/v1/todos	Origin not provided
+20231226	12:57:26	e2c4de53-8ee6-47ea-899b-68c6c810df0b	POST	/api/v1/users/login	http://localhost:3500
+20231226	12:58:37	5f0cba25-24ef-4b86-a78f-376d0b1d569f	POST	/api/v1/users/login	http://localhost:3500
+20231226	12:59:03	ac030f59-f170-441c-b309-969391cecd8e	GET	/api/v1/todos	Origin not provided
+20231226	13:01:24	df4a63a6-7aab-497e-baf6-c53a14689be2	POST	/api/v1/users/login	http://localhost:3500
+20231226	13:02:02	92cdcb58-0afa-4aee-bcbf-7bcbfaeaa806	POST	/api/v1/users/login	http://localhost:3500
+20231226	13:02:52	8e55aeec-b2e4-47df-b50c-e01be3c6a5ca	GET	/api/v1/todos	Origin not provided
+20231226	13:05:41	95767f8b-124b-463e-a936-e2102a401478	GET	/api/v1/todos	Origin not provided
+20231226	13:09:26	5c492323-317c-40eb-8f47-a3bbf91df060	GET	/api/v1/todos	Origin not provided
+20231226	13:12:09	82256ac6-a18a-41ba-9cfe-b4016ae48b7b	GET	/api/v1/todos	Origin not provided
+20231226	13:12:48	f645c09b-9e74-406b-bcc0-dbb07d201cc7	GET	/api/v1/todos	Origin not provided
+20231226	13:15:57	04a6fc28-8298-4c11-8ed4-0a06597c64ca	GET	/api/v1/todos	Origin not provided
+20231226	13:17:19	ce144314-9331-4dd9-9f06-1c3ae49208f4	GET	/api/v1/todos	Origin not provided
+20231226	16:19:08	f31b6fdb-1d07-4023-9f93-012abe11949f	GET	/api/v1/todos	Origin not provided
+20231226	16:32:29	6abc2a23-19a7-4ad6-b1df-7140ed44add7	POST	/api/v1/users/register	http://localhost:3500
+20231226	16:42:13	fa9b2f83-8f53-402f-8477-b4be4f3474c4	GET	/api/v1/todos	Origin not provided
+20231226	16:42:51	797eaa33-80bf-4258-a3a3-fd8a755955ac	POST	/api/v1/users/login	http://localhost:3500
+20231226	16:42:59	b437f381-cfbb-4e3d-9db0-52dcb7fc639f	GET	/api/v1/docs/	Origin not provided
+20231226	16:42:59	4aacaf15-2149-4989-b0ba-5f1fe446a10d	GET	/api/v1/docs/swagger-ui.css	Origin not provided
+20231226	16:42:59	2b7d9495-976b-4e54-b821-e22e0b4cb20e	GET	/api/v1/docs/swagger-ui-standalone-preset.js	Origin not provided
+20231226	16:42:59	86f09ebe-1658-4b9f-9c44-85f7783000d3	GET	/api/v1/docs/swagger-ui-bundle.js	Origin not provided
+20231226	16:42:59	ca8792a4-c30a-4d8b-a735-dfa2a795a149	GET	/api/v1/docs/swagger-ui-init.js	Origin not provided
+20231226	16:43:00	06154f03-16a1-4062-89a0-26431a68383d	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
+20231226	16:43:00	5e7953dc-47fe-4058-a123-ae6352335c62	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
+20231226	16:43:19	c35b5985-571f-46a4-a9c8-b53333f8bf47	POST	/api/v1/users/login	http://localhost:3500
+20231226	16:43:53	f068db8e-353a-4654-99b3-e6e9053e65ff	GET	/api/v1/todos	Origin not provided
+20231226	17:37:11	633630a8-65ad-415f-bc21-5883bf9637c1	GET	/api/v1/docs/	Origin not provided
+20231226	17:37:11	933ab81b-74a7-4207-ab16-95ba05283574	GET	/api/v1/docs/swagger-ui.css	Origin not provided
+20231226	17:37:11	f19c297e-fc39-43e3-99e9-6359acc78146	GET	/api/v1/docs/swagger-ui-bundle.js	Origin not provided
+20231226	17:37:11	edec030a-5230-4298-8b9a-b8b951dc8774	GET	/api/v1/docs/swagger-ui-standalone-preset.js	Origin not provided
+20231226	17:37:11	7dda282f-babc-4e49-bf98-f51d34868508	GET	/api/v1/docs/swagger-ui-init.js	Origin not provided
+20231226	17:37:11	690fa025-8768-4425-941c-f4e13fc3977c	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
+20231226	17:37:12	494d13eb-87ec-453b-8e83-476c8767a2c8	GET	/api/v1/docs/favicon-32x32.png	Origin not provided
+20231226	17:37:26	f31cd0cb-a2f4-44e9-bfee-02400c342560	POST	/api/v1/users/login	http://localhost:3500
+20231226	17:37:58	d4e5e176-9a92-4040-8290-f66382c5efd7	GET	/api/v1/todos	Origin not provided
+20231226	17:39:56	ae8edc67-0b9f-4a36-a8ee-299dd538ef3e	POST	/api/v1/users/login	http://localhost:3500
+20231226	17:40:13	b1e502c8-433f-41db-911f-4eb79d651c11	GET	/api/v1/todos	Origin not provided
+20231226	17:40:43	809de426-208b-4b84-92e0-a0f10eb336a1	GET	/api/v1/todos	Origin not provided
