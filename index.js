@@ -30,15 +30,15 @@ app.use(
 );
 
 app.use(express.json());
-app.use("/", express.static(path.join(__dirname,".","src", "public")));
+app.use("/", express.static(path.join(__dirname, ".", "src", "public")));
 app.use("/", require("./src/routes/root"));
 
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://task-management-16d6.onrender.com/api/v1/docs/",
-      "https://task-management-16d6.onrender.com/api/v1/docs",
+      "https://task-management-16d6.onrender.com",
+      "https://task-management-16d6.onrender.com/",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -74,8 +74,6 @@ app.get("/api/v1/docs.json", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   res.send(swaggerJson);
 });
-
-
 
 const setAllowHeader = (req, res, next) => {
   res.setHeader("Allow", "GET, POST, PUT, DELETE");
