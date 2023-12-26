@@ -28,6 +28,7 @@ app.use(
     stream,
   })
 );
+app.set("trust proxy", true);
 
 app.use(express.json());
 app.use("/", express.static(path.join(__dirname, ".", "src", "public")));
