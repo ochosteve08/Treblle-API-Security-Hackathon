@@ -35,7 +35,11 @@ app.use("/", require("./src/routes/root"));
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://task-management-16d6.onrender.com/api/v1/docs/",
+      "https://task-management-16d6.onrender.com/api/v1/docs",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })

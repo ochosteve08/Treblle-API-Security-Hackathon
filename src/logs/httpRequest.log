@@ -63,3 +63,11 @@
 20231226	00:07:18	4b028f4c-b06d-43ef-8364-b56f22fa861d	GET /api/v1/docs/swagger-ui.css 304 - - 4.020 ms
 20231226	00:07:18	c3bbfb61-02d4-48bd-937a-5d27f33209f4	GET /api/v1/docs/swagger-ui-standalone-preset.js 304 - - 66.270 ms
 20231226	00:07:18	ca04bf3f-6673-4f8d-86a8-c6ef63f4fb4b	GET /api/v1/docs/favicon-32x32.png 304 - - 3.227 ms
+20231226	01:09:57	567b1bda-0425-47f0-af5a-c434121cd880	GET /api/v1/docs/ 304 - - 17.821 ms
+20231226	01:09:57	3c414aa0-9a19-4037-8829-cd1aa4446702	GET /api/v1/docs/swagger-ui-init.js 200 11847 - 7.472 ms
+20231226	01:09:57	397b74ae-e583-4790-a738-d56878aa905c	GET /api/v1/docs/swagger-ui.css 304 - - 31.123 ms
+20231226	01:09:57	c4a6407c-c145-4152-a427-5cbcbabaee45	GET /api/v1/docs/swagger-ui-bundle.js 304 - - 50.063 ms
+20231226	01:09:57	b70485a8-1215-4b2f-8b45-dae529c44c05	GET /api/v1/docs/swagger-ui-standalone-preset.js 304 - - 50.457 ms
+20231226	01:09:58	58de5eb6-fa9f-4c44-ae26-1e0e4f47cbca	GET /api/v1/docs/favicon-32x32.png 304 - - 1.672 ms
+20231226	01:09:58	06fa91c6-c249-4ce3-8304-851669937065	GET /api/v1/docs/favicon-32x32.png 304 - - 1.646 ms
+20231226	01:10:25	38d5562c-54f4-4423-a96d-e1af8ded7864	POST /api/v1/users/register 200 412 - 684.235 ms
