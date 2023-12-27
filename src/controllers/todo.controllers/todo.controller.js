@@ -3,6 +3,7 @@ const { todoValidation } = require("../../validations");
 const { Transaction } = require("../../utils");
 const { success, error } = require("../../lib-handler");
 
+
 // create a new todo item
 const createTodo = async (req, res, next) => {
   const transaction = await Transaction.startSession();
@@ -32,6 +33,7 @@ const createTodo = async (req, res, next) => {
 const getTodo = async (req, res, next) => {
   const transaction = await Transaction.startSession();
   try {
+   
     await transaction.startTransaction();
     const { id } = await todoValidation.todoIdValidation.validateAsync(
       req.params
@@ -56,10 +58,41 @@ const fetchAllTodo = async (req, res, next) => {
   try {
     await transaction.startTransaction();
     const userId = req.user._id;
-    const todo = await todoServices.fetchAllTodo({ userId });
+    const { 
+      title,
+       description 
+      } = req.query;
+    const page = parseInt(req.query.page || 1);
+    const limit = parseInt(req.query.limit) || 20;
+    const startIndex = (page - 1) * limit;
+
+    
+    let query = { userId };
+    let orConditions = [];
+
+    if (title) {
+      orConditions.push({ title: { $regex: title, $options: "i" } });
+    }
+    if (description) {
+      orConditions.push({
+        description: { $regex: description, $options: "i" },
+      });
+    }
+
+    if (orConditions.length) {
+      query.$or = orConditions;
+    }
+
+    const todos = await todoServices.fetchAllTodo({
+      userId,
+      page,
+      limit,
+      startIndex,
+      query
+    });
 
     await transaction.commitTransaction();
-    return success.handler({ todo }, req, res, next);
+    return success.handler(todos, req, res, next);
   } catch (err) {
     await transaction.abortTransaction();
     return error.handler(err, req, res, next);
@@ -117,33 +150,7 @@ const deleteTodo = async (req, res, next) => {
   }
 };
 
-const searchByTitleOrDescription = async (req, res, next) => {
-  const transaction = await Transaction.startSession();
-  const { title, description } = req.query;
 
-  try {
-    await transaction.startTransaction();
-    let query = {};
-    if (title) {
-      query.title = { $regex: title, $options: "i" };
-    }
-    if (description) {
-      query.description = { $regex: description, $options: "i" };
-    }
-    const todos = await todoServices.searchTodo(query);
-    if (!todos) {
-      throw error.throwNotFound({ message: "todos not found" });
-    }
-
-    await transaction.commitTransaction();
-    return success.handler({ todos }, req, res, next);
-  } catch (err) {
-    await transaction.abortTransaction();
-    return error.handler(err, req, res, next);
-  } finally {
-    await transaction.endSession();
-  }
-};
 
 module.exports = {
   createTodo,
@@ -151,5 +158,5 @@ module.exports = {
   getTodo,
   deleteTodo,
   updateTodo,
-  searchByTitleOrDescription,
+ 
 };
