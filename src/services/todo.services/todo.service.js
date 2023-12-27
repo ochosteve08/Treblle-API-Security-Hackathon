@@ -3,10 +3,10 @@ const { todoModel } = require("../../models");
 const createTodo = async ({ title, description, userId }) => {
   return await todoModel.create({ title, description, userId });
 };
-const fetchAllTodo = async ({ userId, page, limit, startIndex }) => {
+const fetchAllTodo = async ({ userId, page, limit, startIndex,query }) => {
   const total = await todoModel.countDocuments({ userId });
   const todos = await todoModel
-    .find({ userId })
+    .find(query)
     .sort({ createdAt: -1 })
     .skip(startIndex)
     .limit(limit)

@@ -90,6 +90,18 @@
                         "schema": {
                             "type": "integer"
                         }
+                    },
+                    {
+                        "in": "query",
+                        "name": "title",
+                        "type": "string",
+                        "description": "Search title string."
+                    },
+                    {
+                        "in": "query",
+                        "name": "description",
+                        "type": "string",
+                        "description": "Search description string."
                     }
                 ],
                 "responses": {

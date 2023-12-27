@@ -11,6 +11,6 @@ todoRoutes.get("/:id", todoController.getTodo);
 todoRoutes.post("/", todoController.createTodo);
 todoRoutes.delete("/:id", todoController.deleteTodo);
 todoRoutes.put("/:id", todoController.updateTodo);
-todoRoutes.get('/search', todoController.searchByTitleOrDescription)
+
 
 module.exports = todoRoutes;

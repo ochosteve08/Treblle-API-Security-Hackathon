@@ -4,7 +4,7 @@ const {
   getTodo,
   deleteTodo,
   updateTodo,
-  searchByTitleOrDescription,
+  
 } = require("./todo.controller");
 
 module.exports = {
@@ -13,5 +13,5 @@ module.exports = {
   getTodo,
   deleteTodo,
   updateTodo,
-  searchByTitleOrDescription,
+  
 };

@@ -25,3 +25,16 @@
 20231226	20:29:45	615034e8-6b2b-4b5b-a940-5f7f411e21ad	undefined: undefined	GET	/?limit=20	Origin not provided	::1
 20231226	20:41:10	3ecb5c23-611c-4a26-9239-e6d3e9c0f03d	undefined: undefined	GET	/?limit=20	Origin not provided	::1
 20231226	20:43:02	378a37b6-6424-4791-be66-a31e30bcef1b	undefined: undefined	GET	/?limit=20	Origin not provided	::1
+20231227	00:29:41	c3de39da-8167-434b-b82e-266be373b12d	undefined: undefined	GET	/search?query=pagination	Origin not provided	::1
+20231227	00:34:15	050b5816-973d-434e-bb34-7e7bc2cd3196	undefined: undefined	GET	/search?query=pagination	Origin not provided	::1
+20231227	00:38:01	e209ffe1-4cc7-4b85-9215-860dadb3ce37	CastError: Cast to ObjectId failed for value "search" (type string) at path "_id" for model "todo"	GET	/search?query=pagination	Origin not provided	::1
+20231227	00:49:16	ca6f8eb5-0dc4-4eea-a38e-8c9c2b11dbb6	CastError: Cast to ObjectId failed for value "search" (type string) at path "_id" for model "todo"	GET	/search?query=pagination	Origin not provided	::1
+20231227	00:50:02	ebd997a8-d7a8-4753-b0bc-efc040431057	undefined: undefined	GET	/search?query=pagination	Origin not provided	::ffff:127.0.0.1
+20231227	00:55:48	14f3238b-84d7-4761-abe2-cafe46cd5c5f	CastError: Cast to ObjectId failed for value "search" (type string) at path "_id" for model "todo"	GET	/search?title=pagination&description=pagination	Origin not provided	::1
+20231227	01:01:00	53a2682a-314d-4240-8f6c-cadacd1551ea	CastError: Cast to ObjectId failed for value "search" (type string) at path "_id" for model "todo"	GET	/search?title=pagination&description=test	Origin not provided	::1
+20231227	01:10:10	10116d3f-4c47-4565-8194-bdb19babf2a0	CastError: Cast to ObjectId failed for value "search" (type string) at path "_id" for model "todo"	GET	/search?title=pagination	Origin not provided	::1
+20231227	01:15:54	561cb462-0811-45b3-8d19-2fcc676d76e2	ValidationError: "Email" must be a valid email	POST	/login	http://localhost:3500	::1
+20231227	01:17:56	f994f33c-05c3-4cf5-ac8c-95b66241c3d1	CastError: Cast to ObjectId failed for value "search" (type string) at path "_id" for model "todo"	GET	/search?title=pagination	Origin not provided	::1
+20231227	01:28:43	85892196-a04d-46c2-8bc6-19e34e7c0457	ReferenceError: query is not defined	GET	/?limit=20	Origin not provided	::1
+20231227	01:29:59	bf984688-03c8-47c0-8b6e-bb9dbb27645c	undefined: undefined	GET	/?limit=20	Origin not provided	::1
+20231227	01:31:18	2a6f0ae5-c88d-416d-aa1f-9f3415acbd57	MongoServerError: $regex has to be a string	GET	/?limit=20	Origin not provided	::1
