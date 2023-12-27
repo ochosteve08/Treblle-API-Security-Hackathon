@@ -11,7 +11,7 @@
             "description": "Task Management App local server"
         },
         {
-            "url": "//https://task-management-16d6.onrender.com//api/v1",
+            "url": "https://task-management-16d6.onrender.com/api/v1",
             "description": "Production server"
         }
     ],
