@@ -1,7 +1,7 @@
-// Import external packages
+
 const { error } = require("./src/lib-handler");
 const express = require("express");
-const treblle = require("@treblle/express");
+// const treblle = require("@treblle/express");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const cors = require("cors");
@@ -28,6 +28,7 @@ app.use(
     stream,
   })
 );
+// app.set("trust proxy", true);
 
 app.use(express.json());
 app.use("/", express.static(path.join(__dirname, ".", "src", "public")));
@@ -61,6 +62,12 @@ const limiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   max: 60,
   message: "Too many requests from this IP, Please try again in an hour",
+  keyGenerator: (req) => {
+   
+    return (
+      req.ip + "-" + (req.headers[`${environmentVariables.X_API_KEY}`] || "")
+    ); 
+  },
 });
 
 app.use(limiter);
