@@ -1,8 +1,8 @@
 
 const { error } = require("./src/lib-handler");
 const express = require("express");
-const treblle = require("@treblle/express");
-// const rateLimit = require("express-rate-limit");
+// const treblle = require("@treblle/express");
+const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
