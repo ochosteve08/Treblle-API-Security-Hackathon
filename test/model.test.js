@@ -5,13 +5,10 @@ const mongoose = require("mongoose");
 
 beforeAll(async function () {
   try {
-    await mongoose.connect(process.env.MONGO_URL, {
-     
-    });
+    await mongoose.connect(process.env.MONGO_URL, {});
     console.log("Connected to test database");
   } catch (error) {
     console.error("Error connecting to test database:", error);
-
   }
 });
 
@@ -20,9 +17,7 @@ afterAll(async function () {
   console.log("Disconnected from test database");
 });
 
-
 describe("todo schema validate", () => {
-
   it("should validate todo model schema", async () => {
     const newTodo = new todoModel();
 
@@ -35,14 +30,13 @@ describe("todo schema validate", () => {
   });
 });
 
-
 describe("Testing Item model", () => {
   let sampleItemVal;
 
   beforeEach(() => {
     sampleItemVal = {
       title: "sample item",
-      description: 'happy day',
+      description: "happy day",
       userId: "5",
       completed: true,
     };
@@ -61,7 +55,6 @@ describe("Testing Item model", () => {
   });
 });
 
-
 afterEach(async () => {
   await UserModel.deleteMany();
 });
@@ -78,15 +71,10 @@ afterEach(async () => {
   await removeAllCollections();
 });
 
-
 afterAll(async () => {
   // Removes the User collection
-  await UserModel.drop();
+  // await UserModel.drop();
 });
-
-
-
-
 
 async function dropAllCollections() {
   const collections = Object.keys(mongoose.connection.collections);
@@ -113,6 +101,3 @@ async function dropAllCollections() {
 afterAll(async () => {
   await dropAllCollections();
 });
-
-
-

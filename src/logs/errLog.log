@@ -38,3 +38,19 @@
 20231227	01:28:43	85892196-a04d-46c2-8bc6-19e34e7c0457	ReferenceError: query is not defined	GET	/?limit=20	Origin not provided	::1
 20231227	01:29:59	bf984688-03c8-47c0-8b6e-bb9dbb27645c	undefined: undefined	GET	/?limit=20	Origin not provided	::1
 20231227	01:31:18	2a6f0ae5-c88d-416d-aa1f-9f3415acbd57	MongoServerError: $regex has to be a string	GET	/?limit=20	Origin not provided	::1
+20231228	04:59:41	68121173-156e-4378-833e-bd1d6b4d0779	Conflict: Email already in use	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231228	05:01:33	6542a9d5-237c-448d-8d4d-5b50f8ddf5fb	Conflict: Email already in use	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:12	a0565437-9260-4cb6-b4ca-bb19002ae788	ValidationError: "Email" must be a valid email	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:12	aff58182-b3d6-4140-975b-63736dff469c	ValidationError: "password" with value "incorrect_password" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@%+\\/!#?$\[\]{}()_\-.])[A-Za-z\d@%+\\/!#?$\[\]{}()_\-.]{8,}$/	POST	/login	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:13	e7086968-2fd8-4a06-98f4-a0b1a2fb64b6	Conflict: Email already in use	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:13	37a7f959-878b-4c34-b60d-a24879617143	JsonWebTokenError: jwt malformed	DELETE	/non_existent_todo_id	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:13	0f8d62dd-091e-43c5-9191-6b3820bd46cd	ValidationError: "Description" is required	PUT	/658f6d055ecb4ce5f931f99d	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:13	5d1a8213-4d6e-4120-ab8f-6417611e6c96	Conflict: Email already in use	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231230	02:06:13	51a1149e-f2f7-4764-b039-30c6c4c70461	ValidationError: "password" with value "invalidpassword" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@%+\\/!#?$\[\]{}()_\-.])[A-Za-z\d@%+\\/!#?$\[\]{}()_\-.]{8,}$/	POST	/login	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:12	33635d9f-b39e-4ed7-ac97-89dbb7727469	ValidationError: "Email" must be a valid email	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:12	ae380fd0-d5f1-418c-b75b-981d73a0f697	ValidationError: "password" with value "incorrect_password" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@%+\\/!#?$\[\]{}()_\-.])[A-Za-z\d@%+\\/!#?$\[\]{}()_\-.]{8,}$/	POST	/login	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:12	cad5232f-4197-4507-9f01-fd5a73748d44	ValidationError: "Title" is required	POST	/	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:13	3e81709f-10d2-42c2-a99e-42c16fb9e6cd	JsonWebTokenError: jwt malformed	DELETE	/non_existent_todo_id	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:13	eaff950e-5705-44c9-a16b-7c313a96021c	ValidationError: "Description" is required	PUT	/658f6f5d797d7e6e0924663f	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:13	8c041680-f86f-40f8-9dbe-96dd356d727b	Conflict: Email already in use	POST	/register	Origin not provided	::ffff:127.0.0.1
+20231230	02:16:13	0aa3f20c-847f-4cbb-ba84-6464e93f223c	ValidationError: "password" with value "invalidpassword" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@%+\\/!#?$\[\]{}()_\-.])[A-Za-z\d@%+\\/!#?$\[\]{}()_\-.]{8,}$/	POST	/login	Origin not provided	::ffff:127.0.0.1
