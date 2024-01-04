@@ -1,6 +1,6 @@
 # Task Management API
 
-This is a  Task Management API built with Node.js and Express.js that allows authenticated users to perform CRUD operations on a "task" resource.
+This is a  Task Management API built with Node.js and Express.js that allows authenticated users to perform various operations on a "task" resource.
 
 ## Getting Started
 
@@ -82,7 +82,7 @@ The API implements proper error handling for various scenarios, such as invalid 
 - User Login: Registered users can log in using their credentials.
 - Authentication: Authenticated users can access protected routes to create, fetch, update, and delete tasks.
 - Create a task: Authenticated users can create new task by providing details such as title, description.
-- Update a task: Authenticated users can update existing task by modifying the details such as title, description.
+- Update a task: Authenticated users can update existing task by modifying the details such as title, description and also upon completion of task.
 - Delete a task: Authenticated users can delete a task from their list of tasks.
 
 ## Technologies Used
